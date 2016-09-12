@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="4c3cde25-bf65-4afc-84e5-eff28e249db8" name="test" url="http://localhost/ucais">
+      <webServer id="716bc703-a334-40fa-9654-75ae9b3937c3" name="test" url="http://localhost/ucais">
         <fileTransfer host="" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
