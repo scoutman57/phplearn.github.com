@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>blog</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.css">
+
+    <script>
+
+        window.onload=function ()
+        {
+            var timer = null;
+            timer = setInterval(tick,2000);
+            var myImg = document.getElementById('img1');
+            var btnnext = document.getElementById('next');
+            var btnback = document.getElementById('back');
+            var divop = document.getElementById('divop');
+            var ione = document.getElementById('iii1');
+            var itwo = document.getElementById('iii2');
+            var ithere = document.getElementById('iii3');
+            var ifour = document.getElementById('iii4');
+
+            var myp = document.getElementById("pchange");
+
+
+            function tick()
+            {
+                var test = myImg.src;
+                var xx = test.split('/');
+                var xx2 = xx[8];
+                var xx3 = xx2.split('.');
+                var xx4 = xx3[0];
+
+                if(xx4<4)
+                {
+                    var str = parseInt(xx4) + 1;
+                    myImg.src='img/'+str+'.jpg';
+                    var sssss = document.getElementById('iii'+ parseInt(parseInt(xx4)+1));
+                    sssss.style.color="#0080FF";
+                    var xxx = document.getElementById('iii'+ parseInt(xx4));
+                    xxx.style.color="white";
+                    if(str==2)
+                    {
+                        myp.innerHTML="这是第二张图片";
+                    }
+                    else if (str==3)
+                    {
+                        myp.innerHTML="这是第三张图片";
+                    }
+                    else if (str==4)
+                    {
+                        myp.innerHTML="这是第四张图片";
+                    }
+
+                }
+                else {
+                    myImg.src='img/'+1+'.jpg';
+                    document.getElementById('iii1').style.color="#0080FF";
+                    document.getElementById('iii4').style.color="white";
+                    myp.innerHTML="这是第一张图片";
+                }
+
+                return xx;
+                return xx3;
+            }
+
+            btnnext.onclick=function ()
+            {
+                var test = myImg.src;
+                var xx = test.split('/');
+                var xx2 = xx[8];
+                var xx3 = xx2.split('.')
+                var xx4 = xx3[0];
+
+                if(xx4<4)
+                {
+                    var str = parseInt(xx4) + 1;
+                    myImg.src='img/'+str+'.jpg';
+                    var sssss = document.getElementById('iii'+ parseInt(parseInt(xx4)+1));
+                    sssss.style.color="#0080FF";
+                    var xxx = document.getElementById('iii'+ parseInt(xx4));
+                    xxx.style.color="white";
+                    if(str==2)
+                    {
+                        myp.innerHTML="这是第二张图片";
+                    }
+                    else if (str==3)
+                    {
+                        myp.innerHTML="这是第三张图片";
+                    }
+                    else if (str==4)
+                    {
+                        myp.innerHTML="这是第四张图片";
+                    }
+                }
+                else {
+                    myImg.src='img/'+1+'.jpg';
+                    document.getElementById('iii1').style.color="#0080FF";
+                    document.getElementById('iii4').style.color="white";
+                    myp.innerHTML="这是第一张图片";
+                }
+
+                return xx;
+                return xx3;
+            };
+
+
+            btnback.onclick=function ()
+            {
+                var test = myImg.src;
+                var xx = test.split('/');
+                var xx2 = xx[8];
+                var xx3 = xx2.split('.');
+                var xx4 = xx3[0];
+
+                if(xx4>1)
+                {
+                    var str = parseInt(xx4) - 1;
+                    myImg.src='img/'+str+'.jpg';
+                    var sssss = document.getElementById('iii'+ parseInt(parseInt(xx4)-1));
+                    sssss.style.color="#0080FF";
+                    var xxx = document.getElementById('iii'+ parseInt(parseInt(xx4)));
+                    xxx.style.color="white";
+                    if(str==1)
+                    {
+                        myp.innerHTML="这是第一张图片";
+                    }
+                    else if (str==2)
+                    {
+                        myp.innerHTML="这是第二张图片";
+                    }
+                    else if (str==3)
+                    {
+                        myp.innerHTML="这是第三张图片";
+                    }
+                }
+                else
+                {
+                    myImg.src='img/'+4+'.jpg';
+                    document.getElementById('iii4').style.color="#0080FF";
+                    document.getElementById('iii1').style.color="white";
+                    myp.innerHTML="这是第四张图片";
+                }
+
+                return xx;
+                return xx3;
+            };
+
+            var divimg = document.getElementById("divimg");
+
+            ione.onmouseover = itwo.onmouseover = ithere.onmouseover = ifour.onmouseover = divop.onmouseover = btnnext.onmouseover = btnback.onmouseover = divimg.onmouseover=function ()
+            {
+                clearInterval(timer);
+            };
+
+            ione.onmouseout = itwo.onmouseout = ithere.onmouseout = ifour.onmouseout = divop.onmouseout = btnnext.onmouseout = btnback.onmouseout = divimg.onmouseout=function ()
+            {
+                timer = setInterval(tick,2000);
+
+                return xx;
+                return xx3;
+            };
+
+
+            ione.onclick = function ()
+            {
+                var str = 1;
+                myImg.src='img/'+str+'.jpg';
+                myp.innerHTML="这是第一张图片";
+                for (var j=1;j<5;j++)
+                {
+                    var xxx = document.getElementById('iii'+ parseInt(j));
+                    xxx.style.color="white";
+                }
+                var sssss = document.getElementById('iii'+ parseInt(str));
+                sssss.style.color="#0080FF";
+            };
+
+            itwo.onclick = function ()
+            {
+                var str = 2;
+                myImg.src='img/'+str+'.jpg';
+                myp.innerHTML="这是第二张图片";
+                for (var j=1;j<5;j++)
+                {
+                    var xxx = document.getElementById('iii'+ parseInt(j));
+                    xxx.style.color="white";
+                }
+                var sssss = document.getElementById('iii'+ parseInt(str));
+                sssss.style.color="#0080FF";
+            };
+            ithere.onclick = function ()
+            {
+                var str = 3;
+                myImg.src='img/'+str+'.jpg';
+                myp.innerHTML="这是第三张图片";
+                for (var j=2;j<5;j++)
+                {
+                    var xxx = document.getElementById('iii'+ parseInt(j));
+                    xxx.style.color="white";
+                }
+                var sssss = document.getElementById('iii'+ parseInt(str));
+                sssss.style.color="#0080FF";
+            };
+            ifour.onclick = function ()
+            {
+                var str = 4;
+                myImg.src='img/'+str+'.jpg';
+                myp.innerHTML="这是第四张图片";
+                for (var j=1;j<5;j++)
+                {
+                    var xxx = document.getElementById('iii'+ parseInt(j));
+                    xxx.style.color="white";
+                }
+                var sssss = document.getElementById('iii'+ parseInt(str));
+                sssss.style.color="#0080FF";
+            };
+
+            //点击后在百度中搜索输入框的内容
+            var btns = document.getElementsByClassName('btnsearch')[0];
+
+            btns.onclick = function ()
+            {
+                var val = document.getElementById('seach').value;
+                if(val == '')
+                {
+                    alert('请输入搜索内容!');
+                    return false;
+                }
+                window.open("http://www.baidu.com/s?wd="+val,"_blank");
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+
+<div class="divheader">
+    <div class="divheadertop">
+        <div class="divlogo">
+            <h1>Alan Shang Blog</h1>
+        </div>
+        <div class="divsearch">
+            <input type="text" class="txtsearch" placeholder=" PHP" id="seach">
+            <button class="btnsearch">搜 索</button>
+        </div>
+    </div>
+    <div class="divnavigation">
+        <div class="divul">
+            <ul class="ultop">
+                <a class="anav" href="#"><li class="litop">
+                    首 页
+                </li></a>
+                <a class="anav" href="#"><li class="litop ihoverHTML">
+                    HTML
+                    <div class="divnHTML">
+                        <a class="anav" href="#">HTML4</a>
+                        <a class="anav" href="#">XML</a>
+                    </div>
+                </li></a>
+                <a class="anav" href="#"><li class="litop">
+                    ThinkPHP
+                </li></a>
+                <a class="anav" href="#"><li class="litop">
+                    Linux
+                </li></a>
+                <a class="anav" href="#"><li class="litop">
+                    HTML5
+                </li></a>
+                <a class="anav" href="#"><li class="litop">
+                    MySQL
+                </li></a>
+                <a class="anav" href="#"><li class="litop">
+                    PHP
+                </li></a>
+                <a class="anav" href="#"><li class="litop">
+                    神技能
+                </li></a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divmain">
+    <div class="div1">
+        <div id="divimg" class="divimg">
+            <img class="imgdaohang" id="img1" src="img/1.jpg" alt="图片">
+        </div>
+        <div id="back" class="div1left">
+            <i class="fa fa-angle-left fa-4x ii" aria-hidden="true"></i>
+        </div>
+        <div id="next" class="div1right">
+            <i class="fa fa-angle-right fa-4x ii" aria-hidden="true"></i>
+        </div>
+        <div class="div1bottom">
+            <div class="div1bp">
+                <div id="divop" class="divop">
+                    <p id="pchange" class="p1b1">
+                        这是第一张图片!!!
+                    </p>
+                </div>
+                <i id="iii1" class="fa fa-circle-o iii1" aria-hidden="true"></i>
+                <i id="iii2" class="fa fa-circle-o iii2" aria-hidden="true"></i>
+                <i id="iii3" class="fa fa-circle-o iii3" aria-hidden="true"></i>
+                <i id="iii4" class="fa fa-circle-o iii4" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="div2">
+        <p class="p1"><b class="b1">F1</b>-前端的优雅</p>
+    </div>
+    <div class="div3">
+        <div class="divleft">
+            <div class="divp">
+                <p class="p2"><b>云标签/Tags</b></p>
+            </div>
+            <div class="divbtn">
+                <button class="btn1">PHP <i class="i1">　3</i></button>
+                <button class="btn1">HTML <i class="i1">　1</i></button>
+                <button class="btn1">Javascript <i class="i1">　3</i></button>
+                <button class="btn1">JQuery <i class="i1">　0</i></button>
+                <button class="btn1">PHP <i class="i1">　0</i></button>
+                <button class="btn1">MySQL <i class="i1">　1</i></button>
+                <button class="btn1">Linux <i class="i1">　1</i></button>
+            </div>
+        </div>
+        <div class="divcenter">
+            <div class="divc1">
+                <p class="p3"><b>最新更新/News</b></p>
+            </div>
+            <div class="divc2">
+                <ul class="ulc">
+                    <li class="lic">PHP好啊!PHP好啊!PHP好啊!PHP好啊!P... <i class="i2">2016-06-15</i></li>
+                    <li class="lic">德媒:默克尔访华 <i class="i2">2016-06-15</i></li>
+                    <li class="lic">PHP好啊! <i class="i2">2016-06-15</i></li>
+                    <li class="lic">HTML好啊! <i class="i2">2016-06-15</i></li>
+                    <li class="lic">PHP好啊! <i class="i2">2016-06-15</i></li>
+                    <li class="lic">PHP好啊! <i class="i2">2016-06-15</i></li>
+                    <li class="lic">PHP好啊! <i class="i2">2016-06-15</i></li>
+                    <li class="lic">PHP好啊! <i class="i2">2016-06-15</i></li>
+                    <li class="lic">
+                        <p class="pr3_2"><a class="atolist" href="list.html">More>>></a></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="divc2"></div>
+        </div>
+
+        <div class="divright">
+            <div class="divp">
+                <p class="p2"><b>神技能/Tags</b></p>
+            </div>
+            <div class="divrp">
+                <p class="pr1" id="pco1"><div class="divhot1">top</div>PHP好啊!</p>
+                <br>
+                <p class="pr2">wuxing</p>
+                <p class="pr3">More>>></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="div2 mt2">
+        <p class="p1"><b class="b1">F2</b>-编程语言的魅力</p>
+    </div>
+
+    <div class="div3">
+        <div class="divleft">
+            <div class="divp">
+                <p class="p2"><b>云标签/Tags</b></p>
+            </div>
+            <div class="divbtn">
+                <button class="btn1">PHP</button>
+                <button class="btn1">HTML</button>
+                <button class="btn1">CSS</button>
+                <button class="btn1">Linux</button>
+                <button class="btn1">MySQL</button>
+                <button class="btn1">Node.js</button>
+                <button class="btn1">图片轮播</button>
+                <button class="btn1">网页欣赏</button>
+                <button class="btn1">Photoshop</button>
+                <button class="btn1">UI</button>
+                <button class="btn1">UE</button>
+            </div>
+        </div>
+        <div class="divcenter">
+            <div class="divc1">
+                <p class="p3"><b>最新更新/News</b></p>
+            </div>
+            <div class="divc2">
+                <ul class="ulc">
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">PHP是最好的语言吗? <i class="i3">2016-06-15</i></li>
+                    <li class="lic">
+                        <p class="pr3_2"><a class="atolist" href="list.html">More>>></a></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="divc2"></div>
+        </div>
+
+        <div class="divright">
+            <div class="divp">
+                <p class="p2"><b>神技能/Tags</b></p>
+            </div>
+            <div class="divrp">
+                <p class="pr1" id="pco2"><div class="divhot1">top</div>DIV+CSS布局的技巧分享!</p>
+                <p class="pr1" id="pco3"><div class="divhot2">hot</div>DIV+CSS布局的技巧分享!</p>
+                <p class="pr1" id="pco4"><div class="divhot3">new</div>DIV+CSS布局的技巧分享!</p>
+                <p class="pr1">DIV+CSS布局的技巧分享!</p>
+                <p class="pr1">DIV+CSS布局的技巧分享!</p>
+                <p class="pr12">DIV+CSS布局的技巧分享!</p>
+                <p class="pr3">More>>></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="div2 mt3">
+        <p class="p1"><b class="b1">F3</b>-网页欣赏</p>
+    </div>
+
+    <div class="div4">
+        <div class="divrow">
+            <div class="div4img">
+                <img class="img4" src="img/1.jpg" alt="">
+            </div>
+            <div class="div4img2">
+                <img class="img4" src="img/1.jpg" alt="">
+            </div>
+            <div class="div4img2">
+                <img class="img4" src="img/1.jpg" alt="">
+            </div>
+            <div class="div4img2">
+                <img class="img4" src="img/1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="divfooter">
+    <p class="pf1"></p>
+    <div class="divfp">
+        <p class="pf2">关于我们　|　联系我们　|　版权声明　|　友情链接　　　　　　　　　　　　　　　　　　　　Email:alansshang@163.com　　&copy;Alan Shang</p>
+    </div>
+</div>
+
+<a class="atotop" href="#">
+<div class="divtotop">
+    Top
+</div>
+</a>
+
+</body>
+</html>

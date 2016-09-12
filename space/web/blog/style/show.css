@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #F2F2F2;
+}
+
+.divheader {
+    width: 100%;
+    height: 150px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+}
+
+.divheadertop {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    background: white;
+}
+
+.divlogo {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    position: relative;
+    top: 50px;
+    left: 350px;
+}
+
+.divsearch {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    position: relative;
+    top: 50px;
+    margin-left: 920px;
+}
+
+.txtsearch {
+    width: 300px;
+    height: 30px;
+}
+
+.btnsearch {
+    padding: 9px 20px;
+    background: #0080FF;
+    border: 1px solid #0080FF;
+    margin-left: -8px;
+    color: white;
+    cursor: pointer;
+}
+
+.divnavigation {
+    width: 100%;
+    height: 50px;
+    background: #0080FF;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.divul {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    color: white;
+    display: inline-block;
+}
+
+.ultop {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.litop {
+    float: left;
+    display: inline-block;
+    line-height: 50px;
+    margin: auto 20px;
+    height: 50px;
+    width: 100px;
+}
+
+.litop:hover{
+    background: blue;
+}
+
+.divmain {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+.div2 {
+    width: 100%;
+    height: 40px;
+    background: white;
+    margin-top: 10px;
+    vertical-align: middle;
+    border: 1px solid white;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+}
+
+.p1 {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: gray;
+    font-size: 14px;
+}
+
+.b1 {
+    font-size: 16px;
+    color: black;
+}
+
+.divleft{
+    width: 890px;
+    height: auto;
+    background: white;
+    float: left;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px grey;
+}
+
+.divright{
+    width: 300px;
+    height: auto;
+    background: gold;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px grey;
+    background: white;
+}
+
+.atoin{
+    text-decoration: none;
+    color: black;
+}
+
+.atoin:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.divright2{
+    width: 300px;
+    height: 250px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px grey;
+    background: white;
+    float: right;
+}
+
+.btn1 {
+    margin-left: 10px;
+    padding: 7px 10px;
+    margin-top: 10px;
+    background: #0080FF;
+    border: none;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+    color: white;
+}
+
+.btn2 {
+    margin-left: 10px;
+    padding: 7px 10px;
+    margin-top: 10px;
+    background: #0080FF;
+    border: none;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+    color: white;
+    display: inline-block;
+}
+
+.btn2_2{
+    background: blue;
+}
+
+.pone2{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+.li2{
+    padding-left: 300px;
+    padding-bottom: 10px;
+}
+
+.ul1{
+    list-style-type: none;
+    padding: 10px;
+}
+
+.li1{
+    border-bottom: dotted gray;
+    text-align: center;
+    clear: both;
+}
+
+.pright{
+    float: right;
+    margin-top: 20px;
+    color: grey;
+}
+
+.pthere{
+    padding-bottom: 10px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.pfour{
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.divp {
+    border-bottom: 3px solid #0080FF;
+    width: 100px;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+
+
+.divrp {
+    width: 100%;
+    height: auto;
+    color: gray;
+}
+
+.pr1 {
+    margin-left: 10px;
+    margin-top: 10px;
+    color: gray;
+}
+
+.pr2 {
+    margin-left: 10px;
+    padding-bottom: 5px;
+    border-bottom: gray dotted;
+    color: gray;
+}
+
+.pr3 {
+    float: right;
+    line-height: 40px;
+    color: gray;
+}
+
+.pr12 {
+    margin-left: 10px;
+    border-bottom: gray dotted;
+    line-height: 40px;
+    color: gray;
+}
+
+.divfooter {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    background: white;
+    text-align: center;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+    float: left;
+}
+
+.divfp {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.pf1 {
+    width: 100%;
+    height: 3px;
+    background: #0080FF;
+    font-size: 40px;
+}
+
+.pf2 {
+    width: 100%;
+    font-size: 19px;
+    color: gray;
+}
+
+.divtotop{
+    position: fixed;
+    top:50%;
+    right: 50px;
+    background: #0080FF;
+    padding: 10px 10px;
+    border-radius: 50% 50% 5px 5px;
+    -webkit-box-shadow: 3px 3px 10px grey;
+    box-shadow: 3px 3px 10px grey;
+}
+
+.atotop{
+    text-decoration: none;
+    color: white;
+}
+
+.atotop:visited{
+    color:white;
+}
+
+.anav{
+    text-decoration: none;
+    color: white;
+}
+
+.anav:visited{
+    color:white;
+}
+
+.divhot1{
+    background: orange;
+    display: inline-block;
+    border-radius: 5px;
+    margin:auto 10px ;
+    padding: 1px 2px;
+    font-size: 5px;
+    color: white;
+}
+
+.divhot2{
+    background: orangered;
+    display: inline-block;
+    border-radius: 5px;
+    margin:auto 10px ;
+    padding: 1px 2px;
+    font-size: 5px;
+    color: white;
+}
+
+.divhot3{
+    background: lawngreen;
+    display: inline-block;
+    border-radius: 5px;
+    margin:auto 10px ;
+    padding: 1px 2px;
+    font-size: 5px;
+    color: white;
+}
+
+#pco1,#pco2,#pco3,#pco4{
+    color: gray;
+    z-index: 2333;
+}
+
+.divhot1{
+    background: orange;
+    display: inline-block;
+    border-radius: 5px;
+    margin:auto 10px ;
+    padding: 1px 2px;
+    font-size: 5px;
+    color: white;
+}
+
+.divhot2{
+    background: orangered;
+    display: inline-block;
+    border-radius: 5px;
+    margin:auto 10px ;
+    padding: 1px 2px;
+    font-size: 5px;
+    color: white;
+}
+
+.divhot3{
+    background: lawngreen;
+    display: inline-block;
+    border-radius: 5px;
+    margin:auto 10px ;
+    padding: 1px 2px;
+    font-size: 5px;
+    color: white;
+}
+
+.divnHTML{
+    width: 150px;
+    height: 50px;
+    background: blue;
+    z-index: 233323232323;
+    position: relative;
+    visibility: hidden;
+}
+
+.ihoverHTML:hover .divnHTML{
+    visibility: visible;
+}
+
+
+
