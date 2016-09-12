@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>checkEmail</title>
+</head>
+<body>
+<script>
+  function checkEmail()
+  {
+    var email = document.getElementById("email");
+    var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+    if (pattern.test(email.value))
+    {
+      alert('right');
+      return true;
+    }
+    else
+    {
+      alert('please enter correct email');
+      return false;
+    }
+  }
+</script>
+<form method="post" action="" onsubmit="return checkEmail()">
+  <input type="text" id="email" name="email">
+  <input type="submit" value="register">
+</form>
+</body>
+</html>

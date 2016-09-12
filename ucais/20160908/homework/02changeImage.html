@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    img{
+      width: 120px;
+      height:100px;
+    }
+
+    li{
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="add()">添加图片</button>
+<button onclick="remove()">移除图片</button>
+
+<ul>
+  <li><img src="http://deskfiles.drame.cn/upload/deskimg/201006/20100621170303201.jpg" alt=""></li>
+</ul>
+
+</body>
+
+<script>
+  var ul = document.getElementsByTagName('ul')[0];
+  function add()
+  {
+    var li = document.createElement('li');
+    li.innerHTML = "<img src='http://deskfiles.drame.cn/upload/deskimg/201006/20100621170303201.jpg'>";
+    ul.appendChild(li);
+  }
+  function remove()
+  {
+    var li = document.getElementsByTagName('li');
+    len = li.length - 1;
+    if (len >= 1)
+      ul.removeChild(li[len]);
+  }
+</script>
+
+</html>

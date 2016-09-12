@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    #divlogin{
+      width: 500px;
+      height: 600px;
+      background: aqua;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -250px;
+      margin-top: -300px;
+      display: none;
+    }
+  </style>
+  <script>
+    function show() {
+      document.getElementById("divlogin").style.display = 'block';
+    }
+    function none() {
+      document.getElementById("divlogin").style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+<button id="btnlogin" onclick="show()">登录</button>
+<div id="divlogin">
+  <button id="divnone" onclick="none()">隐藏</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    table{
+      border:1px solid black;
+      width:500px;
+      height: 500px;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top:50%;
+      margin-left: -250px;
+      margin-top: -250px;
+    }
+    td{
+      border:1px solid black;
+    }
+  </style>
+
+  <script>
+    window.onload = function ()
+    {
+      var row = document.getElementsByTagName('tr');
+      for (var i=0; i<row.length;i++)
+      {
+        if (i%2 == 0)
+        {
+          row[i].style.backgroundColor = 'yellow';
+        }
+        else
+        {
+          row[i].style.backgroundColor = 'pink';
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <table id="tab1">
+    <tr class="tr1">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr class="tr2">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr class="tr1">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr class="tr2">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr class="tr1">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </table>
+</body>
+</html>

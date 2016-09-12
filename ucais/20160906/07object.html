@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    var o = null;
+    console.log(o);
+
+    var teacher = new Object();
+    teacher.name = 'jj';
+    teacher.age = 26;
+    teacher.tel = {home:'010' , mobile:'137'};
+
+    console.log(teacher);
+    var tel = {home:'020' , mobile:'138'};
+    console.log(typeof(tel));
+
+    //数组存多个学生
+    var users = new Array(
+            {name:'sam' , age:18},
+            {name:'tom' , age:19}
+
+    );
+    console.log(users);
+
+    for (var i=0;i<users.length;i++)
+    {
+      var user = users[i];
+      //for...in
+      for(var k in user)
+      {
+        console.log('k=' + k + ', v= ' + user[k]);
+      }
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

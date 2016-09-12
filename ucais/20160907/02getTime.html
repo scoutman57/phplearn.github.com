@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>获取时间</title>
+  <script>
+    function getTime()
+    {
+      var mydate = document.getElementById('mydate');
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      mydate.value = year + '年' + month + '月' + day + '日';
+//      mydate.value = Date();
+    }
+
+  </script>
+</head>
+<body>
+<input id="mydate" type="text">
+<button onclick="getTime()">获取时间</button>
+</body>
+</html>

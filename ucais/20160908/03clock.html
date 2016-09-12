@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>clock</title>
+  <script>
+
+    function clock()
+    {
+      //new 一个对象
+      var date = new Date();
+      //获取小时
+      var hour = date.getHours();
+      //获取分钟
+      var min = date.getMinutes();
+      //获取秒
+      var sec = date.getSeconds();
+      //输出到div中
+      document.getElementById('txt').innerHTML = checkTime(hour)+ ':' + checkTime(min)+ ':' + checkTime(sec);
+      //检查是否小于10 , 小于在在前面加一个0
+      function checkTime(i)
+      {
+        if (i<10)
+          return "0" + i;
+        return i;
+      }
+    }
+
+    //设定定时器
+    setInterval('clock()' , 100);
+
+  </script>
+</head>
+<body>
+
+<div id="txt" style="text-align: center;font-size: 29rem"></div>
+
+</body>
+</html>

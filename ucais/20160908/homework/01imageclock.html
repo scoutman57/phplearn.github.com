@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数码时钟</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<p>
+<img class="img1" src="img/000.png" alt="">
+<img class="img1" src="img/000.png" alt="">
+<b class="b1">:</b>
+<img class="img1" src="img/000.png" alt="">
+<img class="img1" src="img/000.png" alt="">
+<b class="b1">:</b>
+<img class="img1" src="img/000.png" alt="">
+<img class="img1" src="img/000.png" alt="">
+</p>
+
+</body>
+
+<script>
+
+    function  toDouble(n)
+    {
+        if(n<10)
+            return '0'+n;
+        else
+            return ''+n;
+    }
+
+    var myImg = document.getElementsByTagName("img");
+    function tick()
+    {
+        var myDate = new Date();
+        var str = toDouble(myDate.getHours()) + toDouble(myDate.getMinutes()) + toDouble(myDate.getSeconds());
+        for(var i = 0;i<myImg.length;i++)
+        {
+            myImg[i].src='img/00'+str.charAt(i)+'.png';
+        }
+    }
+    setInterval('tick()',500);
+
+</script>
+
+</html>

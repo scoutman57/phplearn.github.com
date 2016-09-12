@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      width: 300px;
+      height: 300px;
+      background: tomato;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<input type="checkbox">
+<div></div>
+</body>
+
+<script>
+  var ch = document.getElementsByTagName('input')[0];
+  var div = document.getElementsByTagName('div')[0];
+  var timer = null;
+
+  ch.onmouseover=div.onmouseover=function ()
+  {
+    clearTimeout(timer);
+    div.style.display="block";
+  };
+
+  div.onmouseout=ch.onmouseout=function ()
+  {
+    timer = setTimeout(function ()
+    {
+      div.style.display="none";
+    },500)
+  };
+
+</script>
+
+</html>

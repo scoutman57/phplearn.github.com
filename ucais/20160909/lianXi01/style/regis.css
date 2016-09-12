@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#divmain{
+  width: 300px;
+  height: 350px;
+  background: gainsboro;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -150px;
+}
+
+#div1,#div2,#div3,#div4{
+  color: red;
+  font-size: 0.8rem;
+  text-align: left;
+  margin-left: 100px;
+  visibility: hidden;
+}
+
+form{
+  margin-top: 50px;
+}
+
+#sub,button{
+  padding: 3px 8px;
+  float: left;
+  margin-left: 70px;
+}

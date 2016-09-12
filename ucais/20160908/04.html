@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    li{
+      float: left;
+      width: 100px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="add()">add</button>
+<button onclick="remove()">remove</button>
+
+<ul>
+  <li>aaaa</li>
+  <li>bbbb</li>
+</ul>
+
+<script>
+  var ul = document.getElementsByTagName('ul')[0];
+//  for (var k in ul.childNodes)
+//  {
+//    var child = ul.childNodes[k];
+//    console.log(child);
+//    if (child.nodeType == document.ELEMENT_NODE)
+//    {
+//      console.log(k + 'is elemnet');
+//    }
+//    else if (child.nodeType == document.TEXT_NODE)
+//    {
+//      console.log(k + 'is text');
+//    }
+//    else
+//    {
+//      console.log(k + 'is other node');
+//    }
+//  }
+
+  //添加子元素
+  function add()
+  {
+    var li = document.createElement('li');
+    li.innerHTML = "<div>test<h1>ttt</h1><img style='width: 100px;height: 100px' src='http://finance.gucheng.com/UploadFiles_7830/201608/2016080414452096.jpg'></div>";
+    ul.appendChild(li);
+  }
+
+  //删除子元素
+  function remove()
+  {
+    var li = document.getElementsByTagName('li');
+    len = li.length - 1;
+    if (len >= 2)
+    {
+      ul.removeChild(li[len]);
+    }
+  }
+</script>
+
+</body>
+</html>

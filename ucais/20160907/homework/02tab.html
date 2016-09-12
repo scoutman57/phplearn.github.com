@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .divchecked{
+      background: white;
+      /*border: 1px solid aqua;*/
+      display: inline-block;
+      border-top: 2px solid gold;
+      color: tomato;
+      padding: 3px 3px;
+    }
+
+    .divunchecked{
+      background: white;
+      /*border: 1px solid aqua;*/
+      display: inline-block;
+      padding: 3px 3px;
+    }
+
+    #div1,#div2,#div3{
+      width: 250px;
+      height: 350px;
+      display: none;
+    }
+
+    #div1{
+      background: aqua;
+      display: block;
+    }
+
+    #div2{
+      background-color: rebeccapurple;
+    }
+
+    #div3{
+      background: yellowgreen;
+     }
+  </style>
+
+  <script>
+    function show1()
+    {
+      document.getElementById('tab1').className = 'divchecked';
+      document.getElementById('tab2').className = 'divunchecked';
+      document.getElementById('tab3').className = 'divunchecked';
+      hidex();
+      document.getElementById('div1').style.display = 'block';
+    }
+
+    function show2()
+    {
+      document.getElementById('tab1').className = 'divunchecked';
+      document.getElementById('tab2').className = 'divchecked';
+      document.getElementById('tab3').className = 'divunchecked';
+      hidex();
+      document.getElementById('div2').style.display = 'block';
+    }
+
+    function show3()
+    {
+      document.getElementById('tab1').className = 'divunchecked';
+      document.getElementById('tab2').className = 'divunchecked';
+      document.getElementById('tab3').className = 'divchecked';
+      hidex();
+      document.getElementById('div3').style.display = 'block';
+    }
+
+    function hidex()
+    {
+      document.getElementById('div1').style.display = 'none';
+      document.getElementById('div2').style.display = 'none';
+      document.getElementById('div3').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+<div id="tab1" class="divchecked" onmouseover="show1()">选项卡一</div>
+<div id="tab2" class="divunchecked" onmouseover="show2()">选项卡二</div>
+<div id="tab3" class="divunchecked" onmouseover="show3()">选项卡三</div>
+
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+</body>
+</html>

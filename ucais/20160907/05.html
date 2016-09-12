@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+    #div1{
+      background: aqua;
+      width: 200px;
+      height: 300px;
+      display: block;
+    }
+
+    #div2{
+      background: tomato;
+      width: 200px;
+      height: 300px;
+      display: none;
+    }
+
+    #div3{
+      background: gold;
+      width: 200px;
+      height: 300px;
+      display: none;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<script>
+
+  function show1()
+  {
+    document.getElementById('div1').style.display = 'block';
+    document.getElementById('div2').style.display = 'none';
+    document.getElementById('div3').style.display = 'none';
+  }
+
+  function show2()
+  {
+    document.getElementById('div1').style.display = 'none';
+    document.getElementById('div2').style.display = 'block';
+    document.getElementById('div3').style.display = 'none';
+  }
+
+  function show3()
+  {
+    document.getElementById('div1').style.display = 'none';
+    document.getElementById('div2').style.display = 'none';
+    document.getElementById('div3').style.display = 'block';
+  }
+
+</script>
+
+<button id="btn1" onmouseover="show1()">一</button>
+<button id="btn2" onmouseover="show2()">二</button>
+<button id="btn3" onmouseover="show3()">三</button><br>
+
+<div id="div1">一</div>
+<div id="div2">二</div>
+<div id="div3">三</div>
+
+</body>
+
+</html>

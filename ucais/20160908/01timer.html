@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <script>
+    function show()
+    {
+      var Num="";
+      for(var i=0;i<6;i++)//生成6位随机数
+      {
+        Num+=Math.floor(Math.random()*10);
+      }
+//      alert(Num);
+      document.getElementsByTagName('body')[0].style.backgroundColor = "#"+Num;
+    }
+
+//    setInterval('show()' , 3000);//每隔一段时间执行一次,定时重复执行
+
+
+//    setTimeout('show()' , 2000);//延迟执行,只执行一次
+
+    var timer1 = null;
+    function start()
+    {
+      timer1 = setInterval('show()' , 1500);
+    }
+
+    function stop()
+    {
+      clearInterval(timer1);
+    }
+
+  </script>
+
+</head>
+<body>
+<input type="button" value="start" onclick="start()">
+<input type="button" value="stop" onclick="stop()">
+</body>
+</html>

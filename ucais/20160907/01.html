@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+//    var name = prompt('your name is:');
+//    document.write('你的名字是:' + name);
+
+//    类型转换
+//    Number()
+//    String()
+//    parseInt()
+//    parseFloat()
+
+//    var arr = new Array;
+//    arr[0] = 1;
+//    arr[1] = 1;
+//    arr[2] = 1;
+//    document.write(arr);
+
+//    var sentence = "hello world";
+//    var sum = 1;
+//    var arr = sentence.split(' ');
+//    console.log(arr.length);
+//
+//    var str = "everything is good today";
+//    var arr = str.split(' ');
+//    for (var i = 0 ; i < arr.length ; i++)
+//    {
+//      console.log(arr[i]);
+////      arr[i].charAt(0).toUpperCase();
+//    }
+
+
+
+//    var mobile = prompt('please input your mobile phone');
+//    var reg = /1[356789]\d{9}/;
+//    if (reg.test(mobile))
+//    {
+//      alert('correct');
+//    }
+//    else
+//    {
+//      alert('error , please input again');
+//    }
+
+
+//    var str = 'sdf23胜3多负sdf少sdgfs';
+//    var reg = '/[\u4e00-\u9fa5]/';
+//    var a = reg.test(str);
+//    document.write(a);
+
+    document.title = 'change title';
+
+    function changeImage() {
+      if (document.getElementById("img1").src == 'http://www.hko.gov.hk/gts/graphics/astron-graphics/astro-photo201008.jpg')
+      {
+        document.getElementById("img1").src = 'http://photocdn.sohu.com/20081225/Img261412359.jpg';
+//        document.getElementById("img1").className = '';
+      }
+      else
+        {
+        document.getElementById("img1").src = 'http://www.hko.gov.hk/gts/graphics/astron-graphics/astro-photo201008.jpg';
+      }
+    }
+  </script>
+</head>
+<body>
+<button onclick="changeImage()">换图片</button><br>
+<img id="img1" src="http://www.hko.gov.hk/gts/graphics/astron-graphics/astro-photo201008.jpg" alt="">
+</body>
+</html>

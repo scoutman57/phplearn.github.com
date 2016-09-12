@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      color: red;
+      font-size: 0.8rem;
+      /*display: none;*/
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+
+  function checkData()
+  {
+    var mobile = document.getElementById("mobile");
+    var pattern = /1[356789]\d{9}/;
+    if (pattern.test(mobile.value))
+    {
+      document.getElementById('divphone').style.visibility = 'hidden';
+      document.getElementById('sub').disabled = false;
+      return true;
+    }
+    else
+    {
+      document.getElementById('divphone').style.visibility = 'visible';
+      document.getElementById('sub').disabled = true;
+      return false;
+    }
+  }
+
+  function checkEmail()
+  {
+    var email = document.getElementById("email");
+    var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+    if (pattern.test(email.value))
+    {
+      document.getElementById('divemail').style.visibility = 'hidden';
+      document.getElementById('sub').disabled = false;
+      return true;
+    }
+    else
+    {
+      document.getElementById('divemail').style.visibility = 'visible';
+      document.getElementById('sub').disabled = true;
+      return false;
+    }
+  }
+
+  function checklast()
+  {
+    if (checkData() && checkEmail())
+    {
+      document.getElementById('sub').disabled = false;
+      return ture;
+    }
+    else
+    {
+      document.getElementById('sub').disabled = true;
+      return false;
+    }
+//    return true;
+  }
+
+</script>
+
+<form method="post" action="register.php" onsubmit="return checklast()">
+
+  <input type="text" id="mobile" name="mobile" onblur="checkData()"><br>
+  <div id="divphone">输入的手机号不合法</div>
+
+  <input type="text" id="email" name="email" onblur="checkEmail()"><br>
+  <div id="divemail">输入的邮箱不合法</div>
+
+  <input id="sub" type="submit" value="register">
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

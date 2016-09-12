@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: grey;
+}
+
+.divmain{
+    width:800px;
+    height: auto;
+    background: #F5F5F5;
+    position: relative;
+    left: 50%;
+    margin-left: -400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 0px 3px 5px grey;
+}
+
+.divhead{
+    position: relative;
+    width: 700px;
+    height: auto;
+    background: white;
+    /*border:1px solid #F5F5F5;*/
+    margin-left: 50px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+}
+
+.divtitle{
+    /*float: left;*/
+    line-height: 30px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.divtime{
+    /*float: right;*/
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 0.9rem;
+    display: inline-block;
+    float: right;
+}
+
+.divimg{
+    position: relative;
+    width: 700px;
+    height:auto;
+    /*background: gold;*/
+    /*border:1px solid black;*/
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+}
+
+.divimg img{
+    width: 100%;
+}
+
+.divpage{
+    position: relative;
+    width: 700px;
+    height: 30px;
+    /*background: gold;*/
+    /*border:1px solid black;*/
+    margin-left: 50px;
+}
+
+.divmain p{
+    text-align: right;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+form{
+    text-align: right;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+.txt{
+    line-height: 25px;
+    width: 50px;
+}
+
+.sub{
+    width: 50px;
+    margin-left: 5px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px grey;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: 1px solid #00868B;
+    color: #00868B;
+    background: #F5F5F5;
+}
+
+.divtop{
+    background: #F5F5F5;
+    position: fixed;
+    left: 1400px;
+    bottom: 200px;
+    padding: 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.divtop a{
+    text-decoration: none;
+    color: grey;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.divtop a:visited{
+    color: grey;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    #divtest{
+      width: 200px;
+      height: 200px;
+      background: grey;
+    }
+  </style>
+  <script>
+    function changestyle(k , v){
+      document.getElementById("divtest").style[k] = v;//可以通过中括号来访问属性
+    }
+    function toclear(){
+      document.getElementById("divtest").style['width'] = "200px";
+      document.getElementById("divtest").style.height = '200px';
+      document.getElementById("divtest").style.background = 'grey';
+    }
+  </script>
+</head>
+<body>
+<button id="btnwidth" onclick="changestyle('width' , '500px')">变宽</button>
+<button id="btnheight" onclick="changestyle('height' , '500px')">变高</button>
+<button id="btncolor" onclick="changestyle('background' , 'red')">变红</button>
+<button id="btnclear" onclick="toclear()">清除样式</button>
+<div id="divtest"></div>
+</body>
+</html>

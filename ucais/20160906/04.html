@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    function checkAll() {
+      document.getElementsByClassName("a")[0].checked = true;
+      document.getElementsByClassName("a")[1].checked = true;
+      document.getElementsByClassName("a")[2].checked = true;
+      document.getElementsByClassName("a")[3].checked = true;
+      document.getElementsByClassName("a")[4].checked = true;
+    }
+    function checkNone() {
+      document.getElementsByClassName("a")[0].checked = false;
+      document.getElementsByClassName("a")[1].checked = false;
+      document.getElementsByClassName("a")[2].checked = false;
+      document.getElementsByClassName("a")[3].checked = false;
+      document.getElementsByClassName("a")[4].checked = false;
+    }
+  </script>
+</head>
+<body>
+  <input class="a" type="checkbox" name="a" value="1">1
+  <input class="a" type="checkbox" name="a" value="2">2
+  <input class="a" type="checkbox" name="a" value="3">3
+  <input class="a" type="checkbox" name="a" value="4">4
+  <input class="a" type="checkbox" name="a" value="5">5
+  <button id="btnall" onclick="checkAll()">全选</button>
+  <button id="btnnone" onclick="checkNone()">全不选</button>
+</body>
+</html>

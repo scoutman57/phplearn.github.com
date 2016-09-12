@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      width: 300px;
+      height: 300px;
+      background: aqua;
+    }
+
+    .changecolor{
+      border: 5px solid tomato;
+      background: palegreen;
+    }
+  </style>
+</head>
+<body>
+<button onclick="tobig()">变大</button>
+<button onclick="tosmall()">变小</button>
+<button onclick="changecolor()">改变背景颜色及边框</button>
+<button onclick="todefault()">恢复默认</button>
+<div class="" id="div1"></div>
+</body>
+
+<script>
+  function tobig()
+  {
+    width = document.getElementById('div1').offsetWidth + 20;
+    document.getElementById('div1').style.width = width+'px';
+    document.getElementById('div1').style.height = width+'px';
+  }
+
+  function tosmall()
+  {
+    width = document.getElementById('div1').offsetWidth - 20;
+    document.getElementById('div1').style.width = width+'px';
+    document.getElementById('div1').style.height = width+'px';
+  }
+
+  function changecolor()
+  {
+    var a = document.getElementsByClassName('changecolor');
+    if (a[0] == null)
+    {
+      document.getElementById('div1').classList.add('changecolor');
+    }
+    else
+    {
+      document.getElementById('div1').classList.remove('changecolor');
+    }
+  }
+
+  function todefault()
+  {
+    document.getElementById('div1').classList.remove('changecolor');
+    document.getElementById('div1').style.width = '300px';
+    document.getElementById('div1').style.height = '300px';
+  }
+</script>
+
+</html>
