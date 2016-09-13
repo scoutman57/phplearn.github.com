@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="716bc703-a334-40fa-9654-75ae9b3937c3" name="test" url="http://localhost/ucais">
-        <fileTransfer host="" port="21">
+        <fileTransfer host="http://localhost/ucais" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

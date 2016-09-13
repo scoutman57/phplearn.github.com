@@ -5,6 +5,8 @@
       <w>addr</w>
       <w>alibaba</w>
       <w>allstr</w>
+      <w>arsort</w>
+      <w>asort</w>
       <w>baidu</w>
       <w>bebbe</w>
       <w>bedtimestories</w>
@@ -14,6 +16,10 @@
       <w>coord</w>
       <w>deltax</w>
       <w>deltay</w>
+      <w>divcenter</w>
+      <w>divleft</w>
+      <w>divmiddle</w>
+      <w>divright</w>
       <w>draging</w>
       <w>duapp</w>
       <w>dzvng</w>
@@ -25,6 +31,8 @@
       <w>hqurl</w>
       <w>insertclasses</w>
       <w>insertusers</w>
+      <w>krsort</w>
+      <w>ksort</w>
       <w>logined</w>
       <w>martinzzfx</w>
       <w>mousedown</w>
@@ -37,6 +45,7 @@
       <w>onscroll</w>
       <w>openapi</w>
       <w>othercheck</w>
+      <w>rsort</w>
       <w>shortvideo</w>
       <w>startx</w>
       <w>starty</w>
@@ -46,6 +55,7 @@
       <w>tuling</w>
       <w>ucai</w>
       <w>uncheck</w>
+      <w>unshift</w>
       <w>userimage</w>
       <w>userinfo</w>
       <w>wechat</w>
