@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="style/registe.css">
+
+</head>
+<body>
+
+<div id="divregister">
+  <form>
+    <label id="lb1">账　号：<input id="username" name="username" type="text" onblur="checkUserName('username')" onkeyup=""></label>
+    <div id="msgUserName1" class="divmsg">账号不能为空！！</div>
+    <br>
+    <label>手机号：<input type="text" onblur=""></label>
+    <div id="msgPhone1" class="divmsg">手机号不能为空！！</div>
+    <br>
+    <label>密　码：<input type="password" onblur=""></label>
+    <br><br>
+    <input type="submit" value="注　册">&nbsp;&nbsp;
+    <input type="button" value="登　录">
+  </form>
+</div>
+
+</body>
+
+<script>
+
+  var obj1 = document.getElementById('username');
+  var username;
+  var pname;
+
+  function ajax(url , callback , type)
+  {
+    if (type == 'username')
+    {
+      username = obj1.value;
+      pname = 'username='+username;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function ()
+    {
+      if (xhr.readyState == 4 && xhr.status == 200)
+      {
+        callback(xhr.responseText);
+//        alert(a);
+//        if (a == 1)
+//        {
+//          document.getElementById('msgUserName1').innerHTML = '账号不能为空！！';
+//          document.getElementById('msgUserName1').style.visibility = 'visible';
+//        }
+//        else
+//        {
+//          document.getElementById('msgUserName1').style.visibility = 'hidden';
+//        }
+      }
+    }
+    xhr.open('POST' , url , true);
+    xhr.setRequestHeader("Content-type" , "application/x-www-form-urlencoded");
+    xhr.send(pname);
+  }
+
+  function xhr(data)
+  {
+//    var data2 = JSON.parse(data);
+//    var content = document.getElementById('content');
+//    content.innerHTML = data2;
+    alert(data);
+  }
+
+  function checkUserName(type)
+  {
+    ajax('check.php' , xhr , type);
+  }
+
+
+
+</script>
+
+</html>
