@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+
+<button id="btn">触发</button>
+<div id="content"></div>
+
+</body>
+
+<script>
+
+  function ajax(url , callback)
+  {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function ()
+    {
+      if (xhr.readyState == 4 && xhr.status == 200)
+      {
+        callback(xhr.responseText);
+      }
+    };
+
+    xhr.open("POST" , url , true);
+    xhr.setRequestHeader("Content-type" , "application/x-www-form-urlencoded");
+    xhr.send("fname=Henry&lname=Frod");
+//    xhr.send();
+  }
+
+  function xhr(data)
+  {
+    var data2 = JSON.parse(data);
+    var content = document.getElementById('content');
+    content.innerHTML = data2;
+  }
+
+  var btn = document.getElementById('btn');
+  btn.onclick = function ()
+  {
+    ajax('04.php' , xhr);
+  }
+
+</script>
+
+</html>

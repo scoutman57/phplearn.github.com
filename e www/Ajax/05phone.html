@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+
+    button{
+      width: 120px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<input type="text" id="phone" name="phone"><button id="btn">发送验证码</button>
+
+</body>
+
+<script>
+
+  var btn = document.getElementById('btn');
+  var timer;
+  var time = 5;
+
+  function changeTime() {
+    if (time > 0) {
+      btn.innerHTML = '剩余时间：' + time + 's';
+      time--;
+    }else {
+      clearInterval(timer);
+      btn.innerHTML = '发送验证码';
+      time = 5;
+      btn.disabled = false;
+    }
+  }
+
+  btn.onclick = function () {
+    btn.disabled = true;
+    changeTime();
+    timer = setInterval('changeTime()' , 1000);
+  }
+
+</script>
+
+</html>

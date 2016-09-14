@@ -2,8 +2,10 @@
   <dictionary name="Administrator">
     <words>
       <w>fontawesome</w>
+      <w>msxml</w>
       <w>textx</w>
       <w>timerx</w>
+      <w>xmlhttp</w>
     </words>
   </dictionary>
 </component>
