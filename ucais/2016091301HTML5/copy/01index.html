@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+
+    div{
+      height: 500px;
+    }
+    #container {
+      display: flex; /*伸缩布局*/
+    }
+    #divleft {
+      background: red;
+      /*flex: 1;*/
+      width: 200px;
+    }
+    #divcenter {
+      background: blue;
+      flex: 3;
+    }
+    #divright {
+      background: green;
+      flex:2;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div id="container">
+  <div id="divleft"></div>
+  <div id="divcenter"></div>
+  <div id="divright"></div>
+</div>
+
+</body>
+
+<script>
+
+
+</script>
+
+</html>

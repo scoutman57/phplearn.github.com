@@ -1,0 +1,87 @@
+<?php
+header("Content-Type:text/html;charset=utf-8");
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  
+  <style>
+	
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+  
+  </style>
+
+</head>
+<body>
+
+<button>获取json</button>
+姓名：<label></label><br>
+年龄：<label></label><br>
+
+
+</body>
+
+<script>
+
+  function ajax(url , callback)
+  {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function ()
+    {
+      if (xhr.readyState == 4)
+      {
+        callback(xhr.responseText);
+      }
+    };
+    xhr.open('GET' , url);
+    xhr.send();
+  }
+  
+  var btn1 = document.getElementsByTagName('button')[0];
+  btn1.onclick = function ()
+  {
+    ajax('04data.php' , funcdiv1);
+  };
+  
+  function funcdiv1(txt)
+  {
+    console.log(txt);
+    console.log(typeof(txt));
+    var user = JSON.parse(txt);
+    console.log(typeof(user));
+    document.getElementsByTagName('label')[0].innerHTML = user.username;
+    document.getElementsByTagName('label')[1].innerHTML = user.age;
+  }
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

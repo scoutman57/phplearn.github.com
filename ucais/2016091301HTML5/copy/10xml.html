@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+
+  </style>
+
+</head>
+<body>
+
+<button>获取xml内容</button>
+<div></div>
+
+</body>
+
+<script>
+
+  function ajax(url, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      console.log(xhr.readyState);
+      if (xhr.readyState == 4) {
+        // div.innerHTML = xhr.responseText;
+        console.log(xhr.responseText);
+        console.log(xhr.responseXML);
+        callback(xhr.responseText);
+      }
+    }
+    xhr.open('GET', url);
+    xhr.send();
+  }
+
+  var btn1 = document.getElementsByTagName('button')[0];
+  var div1 = document.getElementsByTagName('div')[0];
+  btn1.onclick = function(){
+    ajax('11data.xml', funcdiv1);
+  }
+  function funcdiv1(txt) {
+    div1.innerHTML = txt;
+  }
+
+</script>
+
+</html>

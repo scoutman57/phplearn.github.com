@@ -56,3 +56,67 @@ echo "欢迎访问某某网站,你是第{$user_visit}个用户,当前网站一�
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+header("Content-Type:text/html;charset=utf-8");
+$ip = $_SERVER['REMOTE_ADDR'];
+file_put_contents('recode.txt' , $ip . "\r\n" , FILE_APPEND);
+$info = file('recode.txt');
+$visits = count($info);
+$ip_visits = 0;
+$unique_ips = array();
+foreach ($info as $each_ip)
+{
+    if (!in_array($each_ip , $unique_ips))
+    {
+        $unique_ips[] = $each_ip;
+        if ($ip == trim($each_ip)) $user_visit = count($unique_ips);
+    }
+    if (trim($each_ip) == $ip) $ip_visits++;
+}
+$users = count($unique_ips);
+echo "欢迎访问某某网站,你是第{$user_visit}个用户,当前网站一共有{$users}个用户, 当前网页一共被访问了{$visits}次,您当前是第{$ip_visits}次访问!";
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

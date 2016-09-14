@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+
+    canvas{
+      width: 300px;
+      height: 300px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<canvas></canvas>
+
+
+</body>
+
+<script>
+
+  var canvas = document.getElementsByTagName('canvas')[0];
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'aqua';
+  ctx.fillRect(0 , 0 , 100 , 100);
+
+</script>
+
+</html>
