@@ -6,23 +6,123 @@
 
   <script src="js/jquery3.1.0.js"></script>
   <script>
-    //文档加载完成后自动执行
-    $(document).ready(function () {
+	//文档加载完成后自动执行的两种方式
+	$(document).ready(function () {
 
-    });
-    $(function () {
-      //选择元素  选择器
-      $("#content").css("border" , "solid aqua 1px");
-      $(".content").css("height" , "300px");
-    });
+	});
+	$(function () {
+	  //选择元素  选择器
+	  $("#content").css("border", "solid aqua 1px");
+	  //同时赋值多个css
+      $(".content,#age,h1").css
+      ({
+        'height': '300px',
+        'width': '500px',
+        'background': 'gold',
+        'font-size': '3rem'
+      });
+      $('p:eq(1)').css//从零开始
+      ({
+        'height': '300px',
+        'width': '500px',
+        'background': 'tomato',
+        'font-size': '3rem'
+      });
+
+      $('tr:odd').css({
+        'background': 'gold'
+      })
+      $('tr:even').css({
+        'background': 'aqua'
+      })
+	});
   </script>
 
 </head>
 <body>
 
-<div id="content" class="content">
-  111
+<div class="content">
+  test text
 </div>
+
+<div id="age">
+  test text
+</div>
+
+<h1>test text</h1>
+
+<hr>
+
+<p>test text</p>
+<p>test text</p>
+<p>test text</p>
+<p>test text</p>
+<p>test text</p>
+
+<table border="1" width="200px" height="400">
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>10</td>
+  </tr>
+</table>
+
+<!--div[class=demo]{$}*10-->
 
 </body>
 
