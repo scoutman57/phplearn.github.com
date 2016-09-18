@@ -1,10 +1,25 @@
 <?php
 header("Content-Type:text/html;charset=utf-8");
 
-$arr = ['name' => 'maple' , 'age' => '22' , 'height' => '170'];
-$json = json_encode($arr);
-$arr2 = json_decode($json);
-var_dump($arr2);
-?>
+$con=mysqli_connect('localhost:3306','root','','test');
+//判断是查询语句
+if(mysqli_connect_errno($con))
+{
+  die('错误信息'.mysqli_connect_error($con));
+}
 
+$sql = 'select * from table1';
+$res=mysqli_query($con,$sql);
+//如果是查询语句
+
+  $row=array();
+  $rows=array();
+  while($row=mysqli_fetch_array($res,1))
+  {
+    $rows[]=$row;
+  }
+  
+  var_dump($rows);
+
+?>
 
