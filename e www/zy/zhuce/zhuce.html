@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>注册界面</title>
+  <meta charset="utf-8">
+	<style type="text/css">
+		.div2{
+			font-size: 10px;
+			color: gray;
+
+		}
+	  .div1{
+		text-align: center;
+	  }
+	</style>
+</head>
+<body>
+<div class="div1">
+		<h2>ajax之用户注册校验</h2>
+		用户名:<input type="text" name="username" id="username" placeholder="请输入您的用户名" onblur="checkName()"><br>
+		<div id="userDiv" class="div2"></div>
+		密&nbsp码:<input type="password" name="password" id="password" placeholder="请输入密码" onblur="checkPsw()"><br>
+		<div id="pswDiv" class="div2"></div>
+		手机号:<input type="text" name="phone" id="phone" placeholder="请输入手机号码" onblur="checkPhone()"><br>
+		<div id="phoneDiv" class="div2"></div>
+		<input type="submit" value="注册" onclick="All()">
+		<div id="Alldiv"></div>
+</div>
+	<script type="text/javascript">
+
+		
+		// 校验username
+		function checkName(){
+			var username = document.getElementById('username').value;
+			// 对传递的特殊符号进行编码处理
+			username = encodeURIComponent(username);
+			var info = "username="+username;
+			function check(data){
+				
+				var divUser = document.getElementById('userDiv');
+				divUser.innerHTML = data;
+				
+			}
+			ajax(info,'checkUser.php',check);
+		}
+		// 检验密码
+		function checkPsw(){
+			var password = document.getElementById('password').value;
+			var info = "password="+password;
+			function check(data){
+				var divPsw = document.getElementById('pswDiv');
+				divPsw.innerHTML = data;
+			}
+			ajax(info,'checkPsw.php',check);
+		}
+		// 检验手机号
+		function checkPhone(){
+			var phone = document.getElementById('phone').value;
+			var info = "phone="+phone;
+			function check(data){
+				var divPhone = document.getElementById('phoneDiv');
+				divPhone.innerHTML = data;
+			}
+			ajax(info,'checkPhone.php',check);
+		}
+		function All(){
+					// 获取用户名信息	
+					var username = document.getElementById('username').value;
+					// 对传递的特殊符号进行编码处理
+					username = encodeURIComponent(username);
+					// 获取密码信息
+					var password = document.getElementById('password').value;
+					// 获取手机号码
+					var phone = document.getElementById('phone').value;
+					// 要传递过去的信息组织成字符串
+					var info = "username="+username+"&password="+password+"&phone="+phone;
+					
+					function check(data){
+						var divAll = document.getElementById('Alldiv');
+						Alldiv.innerHTML = data;
+						if (data == '注册成功！！！') {
+							setTimeout("javascript:location.href='../denglu/denglu.html'", 3000); 
+						}
+					}
+
+					ajax(info,'zhuce.php',check);
+
+					
+		}
+			function ajax(info,url,callback){
+					
+					// 创建对象
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function(){
+						if (xhr.readyState == 4 && xhr.status == 200) {
+							// 存储返回来的值
+							callback(xhr.responseText);
+							// alert(xhr.responseText);
+						}
+					}
+					xhr.open('post',url,true);
+					xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+					xhr.send(info);
+			}
+			
+			
+	</script>
+</body>
+</html>

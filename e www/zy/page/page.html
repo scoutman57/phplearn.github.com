@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分页</title>
+</head>	
+
+<style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        
+         
+       
+        #div{
+            width: 700px;
+            height: 455px;
+            border: solid #46b8da 1px;
+            margin: 0 auto;
+		  margin-top: 100px;
+        }
+        #containter{
+            width: 795px;
+            height: 455px;
+            margin: 0 auto;
+			margin-left: 800px;
+        }
+       #containter a{
+        margin-left: 20px;
+        font-size: 20px;
+
+       }
+      
+    </style>
+<body>
+	<ul id="div">
+
+    </ul>
+  
+
+    <div id="containter">
+        
+    </div>
+ 
+
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	//封装的ajax函数,这里的参数
+	function  ajax(url,data,callback)
+	{
+       var xhr=new XMLHttpRequest();
+       xhr.onreadystatechange=function()
+       {
+	       	  if(xhr.readyState==4&&xhr.status==200)
+	       	  {
+	               callback(xhr.responseText);
+	       	  }
+       }
+			   xhr.open('POST',url,true);
+			   xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			   xhr.send(data);
+	}
+var pageindex;
+
+function dopage(pageindex)
+	{
+      ajax('list.php',"pageindex="+ pageindex,function(data)
+	  {
+
+		//解析数据
+		var data=JSON.parse(data);
+		var containter=document.getElementById('div');
+        var len=data.length;
+        var alinks=document.getElementById('containter');
+          $("#containter").empty();
+         // 创建对应的页码
+         for(var j =0;j<data[data.length-1]['pageCount'];j++)
+         {
+               //创建之前先移除所有的，然后再添加
+               //移除使用JQ
+               var link=document.createElement('a');
+               var p=j+1;
+               link.setAttribute('href',"javascript:void(0);");
+               link.setAttribute('onclick',"dopage("+p+")");
+               //设置页码的内容和
+               link.innerHTML=p;
+                alinks.appendChild(link);
+               //创建上下页
+               if(j==data[data.length-1]['pageCount']-1)
+               {
+                      //创建上一页下一页
+               var btnprv=document.createElement('button');
+               btnprv.innerHTML="上一页";
+               var prv=pageindex-1==0?1:pageindex-1;
+                btnprv.setAttribute('onclick',"dopage("+prv+")");
+               var btnnex=document.createElement('button');
+               btnnex.innerHTML="下一页";
+               var next=pageindex+1;
+               btnnex.setAttribute('onclick',"dopage("+next+")");
+
+               alinks.appendChild(btnprv);
+               alinks.appendChild(btnnex);
+
+               }
+
+         }
+         //设置当前页的颜色
+         var temp=pageindex-1;
+         $("a:eq("+temp+")").css("color","red");
+         $("#div").empty();
+     
+
+
+		for(var k =0;k<len-1;k++)
+		{
+             var imgs=document.createElement('img');
+             imgs.setAttribute('src','imgs/'+data[k]['goodsimg']);
+             containter.appendChild(imgs);
+        }
+           
+	})
+
+	}
+
+dopage(1);
+</script>
+</html>

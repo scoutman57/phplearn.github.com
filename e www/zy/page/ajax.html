@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        li{
+            list-style: none;
+        }
+        #div{
+            width: 795px;
+            height: 455px;
+            border: solid #46b8da 1px;
+            margin: 0 auto;
+        }
+        #div li{
+            float: left;
+            border: solid #737373 1px;
+            text-align: center;
+            margin: 5px;
+        }
+        #div li img{
+            width: 250px;
+            height: 200px;
+        }
+        #div li h1{
+            font-size: 12px;
+        }
+        .clearfix{
+            clear: both;
+        }
+        #page{
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        #page a{
+            padding: 5px;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="div">
+
+    </ul>
+    <div class="clearfix"></div>
+    <div id="page">ddd</div>
+
+    <script type="text/javascript">
+
+        var obj = new Object();
+        var flag = false; /*是否是post提交*/
+        var uri = "";
+        obj = {
+            ajax:  function (url, callback,param){
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function(){
+                    if(xmlHttp.readyState == 4 && xmlHttp.status ==200){
+                        callback(xmlHttp.responseText);
+                    }
+                }
+                if(flag){
+                    xmlHttp.open("POST",url,true);
+                    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    xmlHttp.send(param);
+                }else{
+                    uri = url+"?"+param+"&t="+Math.random();
+                    xmlHttp.open("GET",uri,true);
+                    xmlHttp.send();
+                }
+
+
+            },
+            handle:function(response){
+
+            },
+            do: function(url, param){
+
+                /*自动加载*/
+                if(param == null){
+                    var body = document.body;
+                    body.onload = function(){
+                        obj.ajax(url,obj.handle,param);
+
+                    }
+                }else{
+                    /*点击连接跳转*/
+                    obj.ajax(url,obj.handle,param);
+
+                }
+
+            }
+
+        };
+
+        var btn = document.getElementById("btn");
+
+        /*回调函数*/;
+       obj.handle = function(data){
+           var div = document.getElementById("div");
+           var page = document.getElementById("page");
+           var jsonObj = JSON.parse(data);
+           var content = '';
+           var pagesum = '';
+            /*活动商品数据*/
+           for(var i=0; i<jsonObj.goodsInfo.length;i++)
+           {
+               content +='<li><a href="http://www.jd.com"><img src="imgs/'+jsonObj.goodsInfo[i].goodsimg+'" alt=""><h1>'+jsonObj.goodsInfo[i].goodsname+'</h1></a></li>'
+           }
+           div.innerHTML = content;
+           /*
+           * 循环页数*/
+           for(var j = 1; j< jsonObj.page; j++){
+               pagesum += '<a onclick="obj.do(\'list.php\',\'page='+j+'\')" href="javascript:void(0)">'+j+'</a>';
+           }
+           page.innerHTML = pagesum;
+       }
+
+        /**
+         * 自动加载
+         */
+        obj.do('list.php',null);
+
+    </script>
+</body>
+</html>

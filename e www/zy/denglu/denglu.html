@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>登录界面</title>
+	<style type="text/css">
+	  .div2{
+		font-size: 10px;
+		color: gray;
+
+	  }
+	  .div1{
+		text-align: center;
+	  }
+	</style>
+</head>
+<body>
+<div class="div1">
+	<h2>ajax之用户登录校验</h2>
+		用户名:<input type="text" name="username" id="username" placeholder="请输入您的用户名" onblur="checkName()"><br>
+		<div id="userDiv" class="div2"></div>
+		密&nbsp码:<input type="password" name="password" id="password" placeholder="请输入密码" onblur="checkPsw()"><br>
+		<div id="pswDiv" class="div2"></div>
+		<input type="submit" value="登录" onclick="All()">
+		<div id="Alldiv" class="div2"></div>
+
+</div>
+		<script type="text/javascript">
+			// 校验username
+			function checkName(){
+				var username = document.getElementById('username').value;
+				// 对传递的特殊符号进行编码处理
+				username = encodeURIComponent(username);
+				var info = "username="+username;
+				function check(data){
+					
+					var divUser = document.getElementById('userDiv');
+					divUser.innerHTML = data;
+						if (data == '该用户名未注册,请先前往注册') {
+							setTimeout("javascript:location.href='../zhuce/zhuce.html'", 2000); 
+						}
+					
+				}
+				ajax(info,'checkUser.php',check);
+			}
+			// 检验密码
+			function checkPsw(){
+				var username = document.getElementById('username').value;
+				// 对传递的特殊符号进行编码处理
+				username = encodeURIComponent(username);
+				var password = document.getElementById('password').value;
+				var info = "username="+username+"&password="+password;
+				function check(data){
+					var divPsw = document.getElementById('pswDiv');
+					divPsw.innerHTML = data;
+				}
+				ajax(info,'checkPsw.php',check);
+			}
+			function All(){
+				var username = document.getElementById('username').value;
+				// 对传递的特殊符号进行编码处理
+				username = encodeURIComponent(username);
+				var password = document.getElementById('password').value;
+				var info = "username="+username+"&password="+password;
+				function check(data){
+					var divAll = document.getElementById('Alldiv');
+					divAll.innerHTML = data;
+				}
+				ajax(info,'denglu.php',check);
+			}
+			function ajax(info,url,callback){
+				// 创建对象
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						// 存储返回值
+						callback(xhr.responseText);
+					}
+				}
+				xhr.open('post',url,true);
+				xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+				xhr.send(info);
+			}
+		</script>
+</body>
+</html>

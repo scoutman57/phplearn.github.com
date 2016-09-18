@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Teambition</title>
+</head>
+<link rel="stylesheet" href="main.css">
+<body>
+	<div class="header ">
+	</div>
+
+  
+        <div class="mes">
+        <div class="text">
+            <input type="text" placeholder="用户名" id="user">
+
+        </div>
+<span style="color:red;display:none" id="usererror">用户名格式不正确</span>
+
+
+           <div class="text">
+            <input type="text" placeholder="手机号" id="phone">
+           </div>
+               <span style="color:red;display:none" id="phoneerror">手机号格式不正确</span>
+            <div class="text">
+            <input type="password" placeholder="密码" id="password">
+           </div>
+         <span style="color:red;display:none" id="pwderror">密码长度不正确</span>
+
+        <input type="button" class="login" onclick="login()"/ value="注册" id="login">
+      
+ 
+</body>
+
+
+<script src="ajax.js"></script>
+<script type="text/javascript">
+//前台的校验工作
+var user=document.getElementById('user');
+var pwd=document.getElementById('password');
+var phone=document.getElementById('phone');
+
+
+//用户名可以直接粘贴过来的，这种需求还是要考虑的。。。。。但是这里就暂时不考虑了
+user.onkeyup=function()
+{
+    if(user.value.length<4||user.value.length>10)
+    {
+        document.getElementById('usererror').style.display='block';
+        document.getElementById('login').disabled=true;
+
+    }
+    else{
+        document.getElementById('usererror').style.display='none';
+        document.getElementById('login').disabled=false;
+    }
+}
+
+
+//验证密码
+pwd.onkeyup=function()
+{
+    if(pwd.value.length<4||pwd.value.length>10)
+    {
+        document.getElementById('pwderror').style.display='block';
+        document.getElementById('login').disabled=true;
+
+    }
+    else
+    {
+        document.getElementById('pwderror').style.display='none';
+        //用户名密码格式都不正确为了减少验证的次数，直接禁用按钮。
+        document.getElementById('login').disabled=false;
+    }
+}
+
+phone.onkeyup=function()
+{
+    // var expreg=/^1[34579][0-9]{9}$/;
+    var expreg=/^1[34578]\d{9}$/;
+    
+    var res=expreg.test(phone.value);
+
+    if(res)
+    {
+        document.getElementById('phoneerror').style.display='none';
+    }
+    else
+    {
+        document.getElementById('phoneerror').style.display='block';
+        document.getElementById('login').disabled=true;
+
+    }
+}
+
+    function login()
+	{
+        if(user.value==''||pwd.value==''||phone.value=="")
+         {
+              alert('有信息您还没填写完整，请填写完整之后再注册');
+              document.getElementById('login').disabled=true;
+         }
+         else
+         {
+            document.getElementById('login').disabled=false;
+            var username=user.value;
+            var password=pwd.value;
+            var data="username="+username+"&password="+password+"&phone="+phone.value;
+            ajax_post('user.php',data,func);
+            function func(txt)
+            {
+                
+                 if(txt==1)
+                 { 
+                    alert("注册成功");
+
+                 }
+                 else
+                 {
+                   alert('注册失败');
+                 }
+            }
+
+         }
+	 
+
+	}
+</script>
+</html>
