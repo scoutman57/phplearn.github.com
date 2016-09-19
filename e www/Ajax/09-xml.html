@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+
+  </style>
+
+</head>
+<body>
+
+<h2>利用ajax+javas实现对xml的接收和处理</h2>
+<input type="button" value="触发" onclick="f1()">
+
+</body>
+
+<script>
+
+  function f1()
+  {
+    //ajax请求xml信息回来
+    //JavaScript的dom技术处理xml
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function ()
+    {
+      if (xhr.readyState == 4)
+      {
+        alert(xhr.responseText);
+      }
+    }
+    xhr.open('get' , '09.xml');
+    xhr.send();
+  }
+
+</script>
+
+</html>
