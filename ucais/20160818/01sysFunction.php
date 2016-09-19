@@ -466,6 +466,7 @@ function localTimes($a)
     echo '当前是 ' . $year . '年 ' . $mon . '月' . $local['tm_mday'] . '日 ' . $senson .' '. $wd . ' ' . $local['tm_hour'] . '时' . $local['tm_min'] . '分';
 }
 
+
 function senson($mon)   //判断季节的函数
 {
     if ($mon >= 3 && $mon <= 5)
