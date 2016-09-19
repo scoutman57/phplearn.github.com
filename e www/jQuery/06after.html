@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>after</title>
   <script src="js/jquery3.1.0.js"></script>
 
 </head>
 <body>
 
-<div>div1</div>
+<!--<div>div1</div>-->
+
+<!--<p>包裹</p>-->
+
+<div id="div1">
+  <div id="div2">
+    <p>包裹</p>
+  </div>
+</div>
 
 </body>
 
@@ -19,8 +27,19 @@
 //    $('div').html('<span>span1</span>');
 //    $('div').text('<span>span1</span>');
 //    $('div').val('<span>span1</span>');
-    $('div').after('<span>span1</span>');
-    $('div').before('<span>span2</span>');
+//    $('div').after('<span>span1</span>');
+//    $('<span>span11</span>').insertAfter('div');
+//    $('div').before('<span>span2</span>');
+//    $('<span>span22</span>').insertBefore('div');
+
+//    $('div').prepend('<span>插在元素内部的前面 </span>');
+//    $('<span>插在元素内部的前面 </span>').prependTo('div');
+//    $('div').append('<span> 插在元素内部的后面</span>');
+//    $('<span> 插在元素内部的后面</span>').appendTo('div');
+
+//    $('p').wrap('<div></div>');//包裹
+    $('p').unwrap();//取消父元素取消包裹
+
   })
 
 </script>

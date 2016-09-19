@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>replace</title>
+  <script src="js/jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<p>你好,世界</p>
+
+</body>
+
+<script>
+
+  $(function ()
+  {
+    //替换标签
+//    $('p').replaceWith('<h1>这是h1</h1>');
+    $('<h1>这是h1</h1>').replaceAll('p');//用内容来替换
+  })
+
+
+</script>
+
+</html>

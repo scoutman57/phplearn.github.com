@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #box{
+      width: 200px;
+      height: 300px;
+      overflow: scroll;
+    }
+
+    #content{
+      width: 1366px;
+      height: 2000px;
+      border: solid red 1px;
+    }
+  </style>
+  <script src="js/jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div id="box">
+  <div id="content"></div>
+</div>
+
+</body>
+
+<script>
+
+  $(function ()
+  {
+    $('#box').scrollLeft(500);//设置滚动条距离左边的位置
+  })
+
+</script>
+
+</html>

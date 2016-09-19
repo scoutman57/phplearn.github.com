@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>内容选择器</title>
+  <style>
+    #d1{
+      position: absolute;
+      width:200px;
+      height:200px;
+      background:tomato;
+    }
+    input{
+    }
+  </style>
+  <script src="js/jquery3.1.0.js"></script>
+</head>
+<body>
+<input type="button" value="点击">
+<div id="d1"></div>
+<!--<div id="d2">这是div2</div>-->
+<!--<div id="d3"> <p>段落</p></div>-->
+<!--<div id="d4">这是div4 <p>段落</p></div>-->
+
+<script>
+  $("input").click(function(){
+//    $("div:contains('i')").css({background:"red"});//匹配包含有指定类容的div
+//    console.log($("div:empty"));//匹配没有类容的div
+//    $("div:empty").css({border:"1px solid red",width:"20px",height:"20px"});
+//    $("div:has(p)").css({background:"red"});//匹配拥有p标签的div
+//    $("div:parent").css({background:"red"});//匹配拥有子元素的标签
+//    $("div:parent").hide(6000);
+//    $("#d1").toggle(6200);
+//    $("#d1").show(6200);
+//    $("#d1").hide(6200);
+
+//    $("#d1").slideUp(3000);
+//    $("#d1").slideDown(3000);
+//    $("#d1").slideToggle(3000);
+
+//    $("#d1").fadeOut(3000);
+//    $("#d1").fadeIn(3000);
+//    $("#d1").fadeToggle(1000);
+//    $("#d1").fadeTo(1000,0.3);
+
+//    自定义
+//    $("#d1").animate({
+//        width: "90%",
+//        height: "100%",
+//        fontSize: "10em",
+//        borderWidth: 10
+//    }, 1000 );
+
+//    $("#d1").animate({left: '+500px'}, "slow");
+
+//    $("#d1").animate({
+//        height: 'toggle', opacity: 'toggle'
+//    }, "slow");
+
+//    $("#d1").animate({
+//        left: 500, opacity: '0.2'
+//    }, 500);
+
+//      $("#d1").animate({left:500,opacity:0.2},1000).animate({left:0,opacity:1},1000);
+    setInterval(function(){
+      $("#d1").animate({left:'40%',opacity:0.5,borderRadius:'100%',height: 300,width: 300,top: '30%'},1000).animate({left:0,opacity:1,borderRadius:0,height: 200,width: 200},1000);
+    },0);
+//    $("#d1").stop(300);
+
+
+  })
+</script>
+</body>
+</html>
