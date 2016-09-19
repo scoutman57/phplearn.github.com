@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <script src="js/jquery3.1.0.js"></script>
-
 </head>
 <body>
 
@@ -26,7 +25,7 @@
 
 <ul>
   <li>list item 1</li>
-  <li>list item 2</li>
+  <li id="demo">list item 2</li>
   <li>list item 3</li>
   <li>list item 4</li>
   <li>list item 5</li>
@@ -41,14 +40,29 @@
 //    $('ul').find('span,h1').css({
 //      'color': 'red'
 //    })
+    
 //    $('span').prevAll('div').css('color','aqua');//span元素前的所有元素
 //    $('a').prevUntil('div').css('color','aqua');//a元素之后的元素到div之间所有的元素
 //    $('div').nextAll().css('color','aqua');//div之后的所有元素
 //    $('div').nextUntil('a').css('color','aqua');//div之后的元素到a元素之间所有的元素
-    $('li').eq(1).css('color','aqua');
+
+//    $('li').eq(1).css('color','aqua');
+//    $('li').filter('#demo').css('color','aqua')
+    $('li').not('#demo').css('color','aqua')
+
 
   })
 
 </script>
 
 </html>
+
+
+
+
+
+
+
+
+
+
