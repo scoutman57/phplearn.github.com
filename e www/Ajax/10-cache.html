@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax发起对服务端的请求</title>
+
+</head>
+<body>
+
+<h2>ajax发起对服务端的请求</h2>
+<br>
+<input type="button" value="触发" onclick="f1()">
+
+</body>
+
+<script>
+
+  function f1()
+  {
+    var xhr = new XMLHttpRequest();
+//    xhr.open('get' , '10.php?'+Math.random());//保证每次请求的地址都一样
+    xhr.open('get' , '10.php');
+    xhr.send(null);
+  }
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

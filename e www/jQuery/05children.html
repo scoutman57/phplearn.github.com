@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    .class1{
+      font-size: 50px;
+    }
+  </style>
   <script src="js/jquery3.1.0.js"></script>
 </head>
 <body>
@@ -99,7 +104,10 @@
 
 //    $('#demo').siblings().css('color','aqua');//兄弟元素
 
-    $('p').slice(-5).css('color','aqua');
+//    $('p').slice(-5).css('color','aqua');
+    $('#demo').attr({
+      'class': 'class1'
+    })
   })
 
 </script>
