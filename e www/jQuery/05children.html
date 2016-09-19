@@ -23,12 +23,30 @@
   <!--</li>-->
 <!--</ul>-->
 
+<button>设置</button>
 <ul>
   <li>list item 1</li>
-  <li id="demo">list item 2</li>
+  <li>list item 2</li>
   <li>list item 3</li>
-  <li>list item 4</li>
+  <li>list item 4<span>span</span></li>
   <li>list item 5</li>
+</ul>
+
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p id="demo">4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+
+<ul>
+  <li><strong>list</strong> item 1 - one strong tag</li>
+  <li><strong>list</strong> item <strong>2</strong> - two <span>strong tags</span></li>
+  <li>list item 3</li>
 </ul>
 
 </body>
@@ -40,7 +58,7 @@
 //    $('ul').find('span,h1').css({
 //      'color': 'red'
 //    })
-    
+
 //    $('span').prevAll('div').css('color','aqua');//span元素前的所有元素
 //    $('a').prevUntil('div').css('color','aqua');//a元素之后的元素到div之间所有的元素
 //    $('div').nextAll().css('color','aqua');//div之后的所有元素
@@ -48,9 +66,40 @@
 
 //    $('li').eq(1).css('color','aqua');
 //    $('li').filter('#demo').css('color','aqua')
-    $('li').not('#demo').css('color','aqua')
+//    $('li').not('#demo').css('color','aqua')
+
+//    $('li').has('span').css('color','aqua')
+
+//    $(':button').click(function ()
+//    {
+//      if ($('P').parent().is('body'))
+//      {
+//        alert('ok');
+//      }
+//    })
 
 
+//    $("li").click(function()
+//    {
+//      var $li = $(this),
+//              isWithTwo = $li.is(function()
+//              {
+//                return $('strong', this).length === 2;
+//              });
+//      if ( isWithTwo )
+//      {
+//        $li.css("background-color", "green");
+//      }
+//      else
+//      {
+//        $li.css("background-color", "red");
+//      }
+//    });
+
+
+//    $('#demo').siblings().css('color','aqua');//兄弟元素
+
+    $('p').slice(-5).css('color','aqua');
   })
 
 </script>
