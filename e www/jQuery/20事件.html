@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<input type="text" id="d1">
+<button id="btn1">触发</button>
+
+</body>
+
+<script>
+
+//  $('#btn1').dblclick(function ()
+//  {
+//    alert('this is dbclick');
+//  })
+  $('#d1').focus(function ()
+  {
+    alert('this is focus');
+  });
+  $('#d1').blur(function ()
+  {
+    alert('this is blur');
+  });
+
+</script>
+
+</html>

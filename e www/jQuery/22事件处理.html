@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background: aqua;
+    }
+  </style>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div>this is div </div>
+<button> 触发 </button>
+
+</body>
+
+<script>
+
+  //bind('要绑定的事件' , 该事件执行的函数)
+//  $('button').bind('click' , function ()
+//  {
+//     alert('this is bind');
+//  });
+
+//  $('div').bind('mouseover' , function ()
+//  {
+//    $('div').html('this is mouseover');
+//  });
+
+  $('div').bind({
+    'mouseover': function ()
+    {
+      $('div').html('this is mouseover');
+    },
+    'mouseout': function ()
+    {
+      $('div').html('this is mouseout');
+    }
+  });
+  $('button').bind('click' , function ()
+  {
+    $('div').unbind('mouseout');
+  });
+
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<img src="a.jpg" alt="">
+<input type="button" value="点击">
+<input type="text">
+<input type="checkbox">
+
+
+</body>
+
+<script>
+
+  $(':button').click(function ()
+  {
+//    console.log($('img').attr('src'));
+//    $(':text').attr('value' , 'abcd');
+//    $(':text').attr({
+//      value: 'a' ,
+//      type: 'button'
+//    });
+//    $(':text').attr
+//    ({
+//      value: function ()
+//      {
+//        return 'onclik';
+//      }
+//    });
+//    $('img').attr('src' , 'b.jpg');
+    $(':button').removeAttr('value');
+  });
+
+</script>
+
+</html>

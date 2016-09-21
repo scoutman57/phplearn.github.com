@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      height:300px;
+      color: white;
+      background: black;
+      cursor: crosshair;
+    }
+  </style>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div>
+  坐标: 0 , 0
+</div>
+
+</body>
+
+<script>
+
+  $('div').mousemove(function (event)
+  {
+    //获取x坐标
+    var x = event.clientX;
+    //获取y坐标
+    var y = event.clientY;
+    $('div').html('坐标: ' + x + ',' + y);
+  });
+
+</script>
+
+</html>

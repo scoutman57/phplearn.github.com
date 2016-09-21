@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>淡入淡出</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div{
+      width: 100px;
+      height: 100px;
+      background: tomato;
+    }
+
+  </style>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div></div>
+
+<button id="btn1"> 显示 </button>
+<button id="btn2"> 隐藏 </button>
+<button id="btn3"> 切换 </button>
+<button id="btn4"> fadeto </button>
+</body>
+
+<script>
+
+  $('#btn1').click(function ()
+  {
+    $('div').fadeIn(2000 , function ()
+    {
+      alert('完成')
+    });
+  });
+  $('#btn2').click(function ()
+  {
+    $('div').fadeOut(1000);
+  });
+  $('#btn3').click(function ()
+  {
+    $('div').fadeToggle(3000);
+  });
+  $('#btn4').click(function ()
+  {
+    $('div').fadeTo(3000 , 0.5 , function ()
+    {
+      alert('ok');
+    });
+  });
+
+</script>
+
+</html>

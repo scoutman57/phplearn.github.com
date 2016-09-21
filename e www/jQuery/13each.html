@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>each</title>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<button>点击</button>
+
+</body>
+
+<script>
+
+  /*
+  [
+     div1
+     div2
+     div3
+     each(function (index[0][1][2] , element[div1][div2][div3]){});
+  ]
+  */
+  $('button').click(function ()
+  {
+//    $('div').html('a');
+    $('div').each(function (n , obj)
+    {
+//      console.log(obj);
+      $(obj).html('这是第' + n + '个');
+    })
+  });
+
+</script>
+
+</html>

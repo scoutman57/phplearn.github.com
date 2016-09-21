@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<button id="btn1">触发</button>
+
+<input type="button" value="click" id="btn2">
+
+</body>
+
+<script>
+
+  $('#btn1').click(function ()
+  {
+//    $('div').wrap('<div></div>');
+//    $('div').wrapAll('<div></div>');
+    $('div').wrapInner('<p></p>');
+  });
+//  $('#btn2').click(function ()
+//  {
+//    $('div').unwrap();
+//  });
+
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div>this is div </div>
+<button>触发</button>
+
+</body>
+
+<script>
+
+  $('button').click(function ()
+  {
+//    $('div').after('<b>this is b</b>');
+//    $('<b>this is new b </b>').insertAfter($('div'));
+//    $('div').before('<b>this is b</b>');
+    $('<b>this is new b </b>').insertBefore($('div'));
+  });
+
+</script>
+
+</html>

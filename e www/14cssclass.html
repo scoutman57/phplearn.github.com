@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .ab{
+      width: 100px;
+      height: 100px;
+      background: aqua;
+    }
+    .abcd{
+      width: 200px;
+      height: 200px;
+      background: tomato;
+    }
+  </style>
+  <script src="jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div class="ab"></div>
+<input type="button" value="点击">
+
+
+</body>
+
+<script>
+
+  $(':button').click(function () {
+//    $('div').addClass('abcd');
+//    $('div').removeClass('abcd');
+    $('div').toggleClass('abcd');
+  });
+
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div>this is div </div>
+<button id="btn1">触发</button>
+<script>
+  $('div').hover(function ()
+  {
+    $('div').html('mouse hover');
+  } , function ()
+  {
+    $('div').html('mouse out');
+  })
+</script>
+<p>this is p</p>
+
+</body>
+
+
+
+</html>

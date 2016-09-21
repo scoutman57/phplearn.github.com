@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background: aqua;
+    }
+  </style>
+  <script src="../jquery3.1.0.js"></script>
+
+</head>
+<body>
+
+<div>this is div </div>
+<button id="btn1"> 触发 </button>
+<button id="btn2"> 解绑 </button>
+<button id="btn3"> one解绑 </button>
+
+</body>
+
+<script>
+
+  //on('要绑定的事件' , 该事件执行的函数)
+    $('#btn1').on('click' , function ()
+    {
+       alert('this is on');
+    });
+    $('#btn2').on('click' , function ()
+    {
+      $('#btn1').off();
+    });
+    $('#btn3').one('click' , function ()
+    {
+      alert('this is one');
+    });
+
+  //  $('div').bind('mouseover' , function ()
+  //  {
+  //    $('div').html('this is mouseover');
+  //  });
+
+//  $('div').bind({
+//    'mouseover': function ()
+//    {
+//      $('div').html('this is mouseover');
+//    },
+//    'mouseout': function ()
+//    {
+//      $('div').html('this is mouseout');
+//    }
+//  });
+//  $('button').bind('click' , function ()
+//  {
+//    $('div').unbind('mouseout');
+//  });
+
+</script>
+
+</html>
