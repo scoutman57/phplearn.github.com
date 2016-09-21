@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: lightyellow;
+}
+
+form{
+  border: 1px solid aqua;
+  border-radius: 10px;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -100px;
+  background: white;
+  -webkit-box-shadow: 3px 3px 5px grey;
+  box-shadow: 3px 3px 5px grey;
+}
+
+#lab1{
+  margin-top: 50px;
+}
+
+button{
+  padding: 5px 15px;
+}
