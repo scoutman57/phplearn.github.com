@@ -1,0 +1,58 @@
+body{
+	margin: 0;
+	padding:0;
+}
+.logo{
+	height: 60px;
+	width: 50%;
+	float: left;
+	line-height: 60px;
+	font-size: 30px;
+	color: #fff;
+	padding-left: 10px;
+}
+.user{
+	height: 60px;
+	width: 300px;
+	float: right;
+	line-height: 95px;
+	text-align: right;
+	padding-right: 10px;
+	color:#fff;
+}
+.menu{
+	margin: 0 auto;
+	margin-top: 15px;
+	width: 180px;
+}
+.menu .p{
+	height: 25px;
+	line-height: 25px;
+	padding: 10px 0;
+	text-align: center;
+	background: #ccc;
+	margin: 5px 0;
+	border-radius: 15px;
+	cursor:pointer;
+}
+.menu-list{
+	display: none;
+}
+.menu-list li{
+	height: 25px;
+	line-height: 25px;
+	padding: 10px 0;
+	text-align: center;
+	/*background: #ccc;*/
+	border:1px solid #ccc;
+	margin: 5px 0;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.menu-list li:hover{
+	border:1px dashed #000;
+}
+.click{
+	border:1px dashed #000;
+}

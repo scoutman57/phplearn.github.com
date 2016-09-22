@@ -1,18 +1,15 @@
 <?php
-
 header('Content-type:text/html;charset=utf-8');
 
+include 'config.php';
 
-session_start();
-
-$con = mysqli_connect('localhost' , 'root' , '' , 'homework');
+$con = mysqli_connect(HOST , MYSQL_USER , MYSQL_PASSWORD , MYSQL_DATABASE);
 
 if(mysqli_connect_errno($con))  //链接产生错误时,返回的错误码
     die('错误信息:'.mysqli_connect_error($con)); //返回上一条错误的错误信息
 
 mysqli_query($con , 'set names utf8');
 
-date_default_timezone_set('PRC'); //设置时区
 
 //帮助我们处理增删改查语句
 function DB($sql = '' , $type = MYSQLI_ASSOC){
@@ -21,6 +18,9 @@ function DB($sql = '' , $type = MYSQLI_ASSOC){
         return false;
     $res = mysqli_query($con , $sql);
 
+  	if ($errno = mysqli_errno($con))
+  	  return '错误码: ' . $errno . '错误信息: ' . mysqli_error($con);
+  
     $sql = strtolower($sql);
     if(substr_count($sql , 'select'))
     {
