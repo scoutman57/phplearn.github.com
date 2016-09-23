@@ -56,3 +56,11 @@ body{
 .click{
 	border:1px dashed #000;
 }
+
+#aloginout{
+	color: white;
+}
+
+#aloginout:visited{
+	color: white;
+}

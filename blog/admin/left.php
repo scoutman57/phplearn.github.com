@@ -22,8 +22,8 @@
 		</ul>
 		<li class="p">栏目管理</li>
 		<ul class="menu-list">
-			<li><a href="tags.php?action=list" target="right">栏目列表</a></li>
-			<li><a href="tags.php?action=add" target="right">添加栏目</a></li>
+			<li><a href="cate/cateList.php" target="right">栏目列表</a></li>
+			<li><a href="cate/cateAdd.php" target="right">添加栏目</a></li>
 		</ul>
 		<li class="p">系统管理</li>
 		<ul class="menu-list">

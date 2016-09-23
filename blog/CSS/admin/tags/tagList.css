@@ -74,3 +74,25 @@ td a:hover{
 .tdshow{
   color: green;
 }
+
+.divpage{
+  margin-top: 20px;
+  float: right;
+  margin-right: 30px;
+}
+
+.divpage a{
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 8px 20px;
+  font-size: 15px;
+  background: #0080ff;
+  border-radius: 5px;
+  color: white;
+  font-weight:600;
+}
+
+.divpage a:hover{
+  -webkit-box-shadow: 3px 3px 5px grey;
+  box-shadow: 3px 3px 5px grey;
+}

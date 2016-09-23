@@ -18,7 +18,7 @@
 	</div>
 	<div class="user">
 		您好,超级管理员 admin
-	  <a href="loginout.php" target="_top">退出</a>
+	  <a id="aloginout" href="loginout.php" target="_top">退出</a>
 	</div>
 </body>
 </html>

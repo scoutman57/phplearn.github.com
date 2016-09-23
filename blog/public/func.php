@@ -135,19 +135,20 @@ function getUpload($file = 'pic' ,$type = array(), $uploadAddr = 'uploads')
 	
 	//检测上传的目标文件夹是否存在,如果不存在,则创建
 	// C:/wamp/www/
+//	var_dump($_SERVER['DOCUMENT_ROOT']);
+//	die;
+	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr))
+	  mkdir($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr);
 	
-	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/admin/'.$uploadAddr))
-	  mkdir($_SERVER['DOCUMENT_ROOT'].'/admin/'.$uploadAddr);
-	
-	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/admin/'.$uploadAddr.'/'.date('Ym')))
-	  mkdir($_SERVER['DOCUMENT_ROOT'].'/admin/'.$uploadAddr.'/'.date('Ym'));
+//	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr.'/'.date('Ym')))
+//	  mkdir($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr.'/'.date('Ym'));
 	
 	//并设置随机文件名
-	$fileName = $uploadAddr.'/'.date('Ym').'/'.md5(microtime(true).rand(10000 , 99999)).'.'.$ext;
+	$fileName = $uploadAddr.'/'.'/'.md5(microtime(true).rand(10000 , 99999)).'.'.$ext;
 	// upload/201608/laksjdfl;kjas;ldfkja;slkdjfsad.jpg
 	
 	//移动文件,移动成功返回上传以后的文件路径
-	return move_uploaded_file($fileTmp['tmp_name'] , $_SERVER['DOCUMENT_ROOT'].'/admin/'.$fileName) ? array('status' => '1' , 'data' => $fileName) : array('status' => '0' , 'data' => '文件移动失败');
+	return move_uploaded_file($fileTmp['tmp_name'] , $_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$fileName) ? array('status' => '1' , 'data' => $fileName) : array('status' => '0' , 'data' => '文件移动失败');
   }else{
 	return array('status' => '0' , 'data' => '文件传入失败');
   }

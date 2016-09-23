@@ -20,8 +20,9 @@ include '../../public/func.php';
 
 <?php
 $sql = 'select * from tags';
-$tags = DB($sql);
-$tagcount = count($tags);
+//$tags = DB($sql);
+$tags = getPageList($sql);
+$tagcount = count($tags['data']);
 echo <<<eof
 	<table>
     <tr><th>TID</th><th>标签名称</th><th>排序</th><th>点击量</th><th>是否显示</th><th>操作</th></tr>
@@ -29,11 +30,15 @@ eof;
 $array = array();
 for ($i = 0 ; $i < $tagcount ; $i++)
 {
-  $array = $tags[$i];
+  $array = $tags['data'][$i];
   $value = $array['status'] ? '显示' : '不显示';
   echo "<tr><td>{$array['tid']}</td><td>{$array['tagname']}</td><td>{$array['ord']}</td><td>{$array['clickcount']}</td><td class='tdshow'>{$value}</td><td class='tdupdate'><a href='tagupdate.php?tid={$array['tid']}'>修改</a></td></tr>";
 }
 echo '</table>';
+//echo $tags['page'];
+echo "<div class='divpage'>
+        {$tags['page']}
+      </div>";
 
 ?>
 
