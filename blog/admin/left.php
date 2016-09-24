@@ -17,14 +17,19 @@
 		</ul>
 		<li class="p">内容管理</li>
 		<ul class="menu-list">
-			<li><a href="tags.php?action=list" target="right">内容列表</a></li>
-			<li><a href="tags.php?action=add" target="right">添加内容</a></li>
+			<li><a href="article/articleList.php" target="right">内容列表</a></li>
+			<li><a href="article/articleAdd.php" target="right">添加内容</a></li>
 		</ul>
-		<li class="p">栏目管理</li>
-		<ul class="menu-list">
-			<li><a href="cate/cateList.php" target="right">栏目列表</a></li>
-			<li><a href="cate/cateAdd.php" target="right">添加栏目</a></li>
-		</ul>
+	  <li class="p">栏目管理</li>
+	  <ul class="menu-list">
+		<li><a href="cate/cateList.php" target="right">栏目列表</a></li>
+		<li><a href="cate/cateAdd.php" target="right">添加栏目</a></li>
+	  </ul>
+	  <li class="p">轮播管理</li>
+	  <ul class="menu-list">
+		<li><a href="player/playerList.php" target="right">轮播列表</a></li>
+		<li><a href="player/playerAdd.php" target="right">添加轮播</a></li>
+	  </ul>
 		<li class="p">系统管理</li>
 		<ul class="menu-list">
 			<li><a href="tags.php?action=list" target="right">系统管理</a></li>

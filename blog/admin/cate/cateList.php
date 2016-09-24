@@ -2,17 +2,6 @@
 header("Content-Type:text/html;charset=utf-8");
 
 include '../../public/func.php';
-//include '../../public/func.php';
-
-
-//$sql = 'select * from cate where pid = 0';
-//$data = DB($sql);
-//$datacount = count($data);
-//var_dump($data);
-
-//$sql = "select * from cate where pid = 2";
-//$res = DB($sql);
-//var_dump($res);
 
 function tree($pid = 0)
 {

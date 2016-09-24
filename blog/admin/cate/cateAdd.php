@@ -7,7 +7,7 @@ if (!empty($_POST))
 {
   if ($_FILES['pic']['name'] != '')
   {
-    $res = getUpload();
+    $res = getUpload('pic' , 'cate_image');
     $fileName = explode('/' , $res['data'])[2];
   }
   else

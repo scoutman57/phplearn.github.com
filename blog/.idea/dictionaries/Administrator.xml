@@ -2,17 +2,26 @@
   <dictionary name="Administrator">
     <words>
       <w>aloginout</w>
+      <w>artical</w>
       <w>btnsub</w>
       <w>clickcount</w>
       <w>datacount</w>
       <w>divpage</w>
       <w>ffffff</w>
       <w>filestatus</w>
+      <w>imgtonone</w>
       <w>loginout</w>
+      <w>mycheck</w>
+      <w>mysrc</w>
+      <w>playerid</w>
+      <w>playerscount</w>
       <w>rescount</w>
+      <w>showx</w>
       <w>tagcount</w>
+      <w>tagl</w>
       <w>tagname</w>
       <w>tagupdate</w>
+      <w>tagvalue</w>
       <w>tdshow</w>
       <w>tdupdate</w>
       <w>tearline</w>

@@ -32,6 +32,7 @@ function getPageList($sql = '', $query = array())
   // 5.当前页数 $_GET
   
   $count = count(DB($sql)); //获取总条数
+//  var_dump($count);
   // PAGE_NUM
   $totalNum = ceil($count / PAGE_NUM); //获取总页数,进一法取整
   
@@ -44,7 +45,7 @@ function getPageList($sql = '', $query = array())
   
   // limit 起始位置,取条数
   $datas = DB($sql . $limit); //执行SQL语句,获取数据数组
-  
+//  var_dump($datas);
   $html = ''; //获取表格
   
   $geturl = !empty($query) ? http_build_query($query).'&' : '';
@@ -86,7 +87,7 @@ function getPageList($sql = '', $query = array())
 
 
 
-function getUpload($file = 'pic' ,$type = array(), $uploadAddr = 'uploads')
+function getUpload($file = 'pic' , $uploadAddr = 'uploads' , $type = array())
 {
   set_time_limit(0); //设置响应时间为永久
   
@@ -137,18 +138,20 @@ function getUpload($file = 'pic' ,$type = array(), $uploadAddr = 'uploads')
 	// C:/wamp/www/
 //	var_dump($_SERVER['DOCUMENT_ROOT']);
 //	die;
-	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr))
-	  mkdir($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr);
+	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/images/'.$uploadAddr))
+	  mkdir($_SERVER['DOCUMENT_ROOT'].'/images/'.$uploadAddr);
+	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/images/'.$uploadAddr.'/uploads'))
+	  mkdir($_SERVER['DOCUMENT_ROOT'].'/images/'.$uploadAddr.'/uploads');
 	
-//	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr.'/'.date('Ym')))
-//	  mkdir($_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$uploadAddr.'/'.date('Ym'));
+//	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/images/'.$uploadAddr.'/'.date('Ym')))
+//	  mkdir($_SERVER['DOCUMENT_ROOT'].'/images/'.$uploadAddr.'/'.date('Ym'));
 	
 	//并设置随机文件名
-	$fileName = $uploadAddr.'/'.'/'.md5(microtime(true).rand(10000 , 99999)).'.'.$ext;
+	$fileName = $uploadAddr.'/uploads'.'/'.md5(microtime(true).rand(10000 , 99999)).'.'.$ext;
 	// upload/201608/laksjdfl;kjas;ldfkja;slkdjfsad.jpg
 	
 	//移动文件,移动成功返回上传以后的文件路径
-	return move_uploaded_file($fileTmp['tmp_name'] , $_SERVER['DOCUMENT_ROOT'].'/images/cate_image/'.$fileName) ? array('status' => '1' , 'data' => $fileName) : array('status' => '0' , 'data' => '文件移动失败');
+	return move_uploaded_file($fileTmp['tmp_name'] , $_SERVER['DOCUMENT_ROOT'].'/images/'.$fileName) ? array('status' => '1' , 'data' => $fileName) : array('status' => '0' , 'data' => '文件移动失败');
   }else{
 	return array('status' => '0' , 'data' => '文件传入失败');
   }

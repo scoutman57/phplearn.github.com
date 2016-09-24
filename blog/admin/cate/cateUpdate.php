@@ -12,6 +12,14 @@ if (!empty($_POST))
   $res = DB($sql);
   if (!empty($res));
   {
+    if ($_POST['cid'] == $_POST['pid'])
+    {
+      echo '<script>
+          alert(\'自己不能成为自己的子类哦!\');
+        </script>';
+      echo "<script>setTimeout('location=\'cateUpdate.php?cid={$_POST['cid']}\'' , 0)</script>";
+      exit();
+    }
     function tree2($pid = 0)
     {
       $arr = array();

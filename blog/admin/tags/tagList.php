@@ -11,6 +11,7 @@ include '../../public/func.php';
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../../css/admin/tags/tagList.css">
+  <script src="/js/jquery3.1.0.js"></script>
   <title></title>
 </head>
 <body>
@@ -22,26 +23,55 @@ include '../../public/func.php';
 $sql = 'select * from tags';
 //$tags = DB($sql);
 $tags = getPageList($sql);
-$tagcount = count($tags['data']);
-echo <<<eof
+
+if (!empty($tags))
+{
+  $tagcount = count($tags['data']);
+  echo <<<eof
 	<table>
     <tr><th>TID</th><th>标签名称</th><th>排序</th><th>点击量</th><th>是否显示</th><th>操作</th></tr>
 eof;
-$array = array();
-for ($i = 0 ; $i < $tagcount ; $i++)
-{
-  $array = $tags['data'][$i];
-  $value = $array['status'] ? '显示' : '不显示';
-  echo "<tr><td>{$array['tid']}</td><td>{$array['tagname']}</td><td>{$array['ord']}</td><td>{$array['clickcount']}</td><td class='tdshow'>{$value}</td><td class='tdupdate'><a href='tagupdate.php?tid={$array['tid']}'>修改</a></td></tr>";
-}
-echo '</table>';
+  $array = array();
+  for ($i = 0 ; $i < $tagcount ; $i++)
+  {
+	$array = $tags['data'][$i];
+	$value = $array['status'] ? '显示' : '不显示';
+	echo "<tr><td>{$array['tid']}</td><td>{$array['tagname']}</td><td>{$array['ord']}</td><td>{$array['clickcount']}</td><td class='td{$array['status']}'>{$value}</td><td class='tdupdate'><a href='tagupdate.php?tid={$array['tid']}'>修改</a></td></tr>";
+  }
+  echo '</table>';
 //echo $tags['page'];
-echo "<div class='divpage'>
+  echo "<div class='divpage'>
         {$tags['page']}
       </div>";
+}
+else
+{
+  $tags = DB($sql);
+  $tagcount = count($tags);
+  echo <<<eof
+	<table>
+    <tr><th>TID</th><th>标签名称</th><th>排序</th><th>点击量</th><th>是否显示</th><th>操作</th></tr>
+eof;
+  $array = array();
+  for ($i = 0 ; $i < $tagcount ; $i++)
+  {
+	$array = $tags[$i];
+	$value = $array['status'] ? '显示' : '不显示';
+	echo "<tr><td>{$array['tid']}</td><td>{$array['tagname']}</td><td>{$array['ord']}</td><td>{$array['clickcount']}</td><td class='td{$array['status']}'>{$value}</td><td class='tdupdate'><a href='tagupdate.php?tid={$array['tid']}'>修改</a></td></tr>";
+  }
+  echo '</table>';
+}
+
+
 
 ?>
 
 </body>
+
+<script>
+  $('.td0').css('color' , 'red');
+  $('.td1').css('color' , 'green');
+</script>
+
 </html>
 
