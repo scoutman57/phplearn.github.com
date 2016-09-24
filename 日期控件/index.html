@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+		<link href="datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+		<script src="datetimepicker/js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+	</head>
+	<body>
+		<input type="text" name="" class="text input-large time" value="" placeholder="请选择时间" />
+		<script>
+			$(function(){
+				$('.time').datetimepicker({
+			        format: 'yyyy-mm-dd hh:ii',
+			        language:"zh-CN",
+			        minView:2,
+			        autoclose:true
+			    });
+			});
+		</script>
+	</body>
+</html>

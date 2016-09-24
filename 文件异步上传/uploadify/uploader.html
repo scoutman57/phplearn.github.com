@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="uploadify/uploadify.css" />
+		<script src="../../add/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.uploadify.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+			<input type="file" id="upload_picture" class="uploadify uploadify-button">
+			<img src="" id="show"/>
+			<script type="text/javascript">
+					$(function(){
+							//上传图片
+							    /* 初始化上传插件 */
+								$("#upload_picture").uploadify({
+							        "height"          : 30,
+							        "swf"             : "uploadify.swf",
+							        "fileObjName"     : "download",
+							        "buttonText"      : "上传图片",
+							        "uploader"        : "file.php",
+							        "width"           : 120,
+							        'removeTimeout'	  : 1,
+							        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+							        "onUploadSuccess" : uploadPicture,
+							        'onFallback' : function() {
+							            alert('未检测到兼容版本的Flash.');
+							        }
+							    });
+								function uploadPicture(file, data)
+								{
+									
+									
+							    	var data = $.parseJSON(data);
+							    	//alert(data.filename);
+							    	$("#show").attr("src", data.filename);
+							    	
+							    }
+								
+							$("#upload_picture-button").css("width","100px");	
+					});
+			</script>
+	</body>
+</html>
