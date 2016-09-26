@@ -30,6 +30,11 @@
 		<li><a href="player/playerList.php" target="right">轮播列表</a></li>
 		<li><a href="player/playerAdd.php" target="right">添加轮播</a></li>
 	  </ul>
+	  <li class="p">图片管理</li>
+	  <ul class="menu-list">
+		<li><a href="picture/pictureList.php" target="right">图片列表</a></li>
+		<li><a href="picture/pictureAdd.php" target="right">添加图片</a></li>
+	  </ul>
 		<li class="p">系统管理</li>
 		<ul class="menu-list">
 			<li><a href="tags.php?action=list" target="right">系统管理</a></li>

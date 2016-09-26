@@ -18,8 +18,8 @@ include '../../public/func.php';
 </head>
 <body>
 
-<!--<h1>轮播列表</h1>-->
-<!--<h2>请按照格式修改!</h2>-->
+<h1>轮播列表</h1>
+<h2>修改轮播需谨慎!</h2>
 
 <div id="divShowImage" style="width: 300px;height: 300px;background: tomato;position: absolute;display: none">
   <img id="myimgshowx" src="" alt="" style="width: 100%;height: 100%;background: aqua">

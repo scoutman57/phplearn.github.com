@@ -151,6 +151,22 @@ status INT (10) NOT NULL DEFAULT 0
 
 
 
+//创建图片表-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `picture`(
+picid INT (10) PRIMARY KEY auto_increment,
+pid INT (10) NOT NULL DEFAULT 0,
+pic_name VARCHAR (50) NOT NULL DEFAULT '',
+local_route VARCHAR (200) NOT NULL DEFAULT '',
+link VARCHAR (200) NOT NULL DEFAULT '',
+ord INT (10) NOT NULL DEFAULT 0,
+status INT (10) NOT NULL DEFAULT 0
+)charset=utf8;
+
+//创建图片表-------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 

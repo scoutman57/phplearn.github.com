@@ -70,7 +70,7 @@ $res = DB($sql)[0];
   <label for="">图片　　　　　　　<input type="file" name="local_route"></label><br><br>
   <label for="">链接　　　　　　　<input type="text" class="carouselAdd" name="link" value="<?php echo $res['link']; ?>"></label><br><br>
   <label for="">排序　　　　　　　<input type="text" class="carouselAdd" name="ord" value="<?php echo $res['ord']; ?>"></label><br><br>
-  <label for="">是否显示　　　　　<input type="radio" name="status" value="0" checked>　不显示　<input type="radio" name="status" value="1">　显示　</label><br><br>
+  <label for="">是否显示　　　　　<input type="radio" name="status" value="0" checked>　不显示　<input type="radio" name="status" value="1" id="status">　显示　</label><br><br>
   <input type="submit" class="btnsub" name="btnsub">
   <input type="hidden" name="playerid" value="<?php echo $_GET['playerid']; ?>">
 </form>
@@ -85,6 +85,14 @@ $res = DB($sql)[0];
       alert('轮播名称不能为空!');
       return false;
     }
+  }
+
+  var status = <?php echo $res['status']; ?>;
+
+
+  if (status == '1')
+  {
+    $('#status').attr('checked' , 'checked');
   }
 </script>
 
