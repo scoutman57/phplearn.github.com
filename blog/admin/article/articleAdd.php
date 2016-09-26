@@ -10,17 +10,15 @@ include '../../public/func.php';
 if (!empty($_POST))
 {
   $html = htmlspecialchars($_POST['article_content']);
-
+  $articleL = getUploadArticle($html);
   $date = date("Y-m-d H-i-s");
-  $sql = "insert into article values(null , {$_POST['pid']} , '{$_POST['article_name']}' , '{$_POST['article_describe']}' , '{$html}' , '{$_POST['article_author']}' , {$_POST['click_count']} , {$_POST['ord']} , {$_POST['essence']} , {$_POST['top']} , {$_POST['status']} , '{$date}')";
-//  var_dump($_POST);
+  $sql = "insert into article values(null , {$_POST['pid']} , '{$_POST['article_name']}' , '{$_POST['article_describe']}','{$articleL}', '{$_POST['article_author']}' , {$_POST['click_count']} , {$_POST['ord']} , {$_POST['essence']} , {$_POST['top']} , {$_POST['status']} , '{$date}')";
+
   if (isset($_POST['tids']))
   {
     if (DB($sql))
     {
       $aid = DB('select max(aid) from article')[0]['max(aid)'];
-//      var_dump($aid);
-//      die;
       $arr = $_POST['tids'];
       $count = count($arr);
       for ($i=0;$i<$count;$i++)
@@ -39,7 +37,7 @@ if (!empty($_POST))
       $aid = DB('select max(aid) from article')[0]['max(aid)'];
       DB("insert into article_tags values(null , {$aid} , {$_POST['tid']})");
       echo '<script>
-          alert(\'新增成功!您可以继续新增!\');
+          alert(\'新增成功2!您可以继续新增!\');
         </script>';
     }
   }

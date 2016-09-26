@@ -157,5 +157,32 @@ function getUpload($file = 'pic' , $uploadAddr = 'uploads' , $type = array())
   }
   
 }
+
+
+
+
+
+
+
+
+//------------------上传文章-------------------------------------------------------------
+
+
+
+function getUploadArticle($html = '')
+{
+  set_time_limit(0);
+	if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/admin/article/articles/uploads'))
+	  mkdir($_SERVER['DOCUMENT_ROOT'].'/admin/article/articles/uploads');
+	
+  //并设置随机文件名
+  $fileName = md5(microtime(true).rand(10000 , 99999)).'.txt';
+  file_put_contents($_SERVER['DOCUMENT_ROOT'].'/admin/article/articles/uploads'.'/'.$fileName , $html , FILE_APPEND);
+	//移动文件,移动成功返回上传以后的文件路径
+  return $fileName;
+//	return move_uploaded_file($html , $_SERVER['DOCUMENT_ROOT'].'/admin/article/articles/'.$fileName) ? array('status' => '1' , 'data' => $fileName) : array('status' => '0' , 'data' => '文件移动失败');
+ 
+  
+}
 ?>
 

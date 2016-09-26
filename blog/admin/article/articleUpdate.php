@@ -8,8 +8,10 @@ include '../../public/func.php';
 //$_POST---------------------------------------------------------------------------------------------------------------------------------
 if (!empty($_POST))
 {
+  $html = htmlspecialchars($_POST['article_content']);
+  $articleL = getUploadArticle($html);
   $date = date('Y-m-d H-i-s');
-  $sql = "update article set cid = {$_POST['pid']} , article_name = '{$_POST['article_name']}' , article_describe = '{$_POST['article_describe']}' , article_content = '{$_POST['article_content']}' , article_author = '{$_POST['article_author']}' , click_count = {$_POST['click_count']} , ord = {$_POST['ord']} , essence = {$_POST['essence']} , top = {$_POST['top']} , status = {$_POST['status']} , last_time = '{$date}' where aid = {$_POST['aid']}";
+  $sql = "update article set cid = {$_POST['pid']} , article_name = '{$_POST['article_name']}' , article_describe = '{$_POST['article_describe']}' , article_content = '$articleL' , article_author = '{$_POST['article_author']}' , click_count = {$_POST['click_count']} , ord = {$_POST['ord']} , essence = {$_POST['essence']} , top = {$_POST['top']} , status = {$_POST['status']} , last_time = '{$date}' where aid = {$_POST['aid']}";
 
   if (DB($sql))
   {
@@ -26,7 +28,6 @@ if (!empty($_POST))
     }
     else
     {
-      var_dump('1111');
       DB("insert into article_tags VALUES (null , {$_POST['aid']} , {$_POST['tid']})");
     }
     echo '<script>
@@ -38,7 +39,7 @@ if (!empty($_POST))
 }
 //---------------------------------------------------------------------------------------------------------------------------------
 
-
+//var_dump($_GET);
 $aid = $_GET['aid'];
 $sql = "select a.aid,a.cid,a.article_name,a.article_describe,a.article_content,a.article_author,a.click_count,a.ord,a.essence,a.top,a.status,a.last_time,c.cate_name from cate c , article a where a.cid = c.cid && a.aid = {$aid}";
 
@@ -69,6 +70,7 @@ function tree($pid = 0)//15 为cate表中文章分类的CID
 $sql = "select * from cate where cate_name = '文章分类'";
 $pid = DB($sql)[0]['cid'];
 $arrayTree = tree($pid);
+//var_dump($arrayUpdate,$arrayTree);
 
 
 
@@ -106,7 +108,7 @@ $arrayTree = tree($pid);
         {
           $arr = $arrayTree[$i];
           $xian = '　'.str_repeat('|----' , $c-1);
-          if ($arr['cid'] == $arrayUpdate['pid'])
+          if ($arr['cid'] == $arrayUpdate['cid'])
           {
             echo "<option value='{$arr['cid']}' selected>{$xian}{$arr['cate_name']}</option>";
           }
@@ -183,7 +185,13 @@ $arrayTree = tree($pid);
 <!--      </script>-->
   <p class="fl">文章内容　　　　</p>
   <textarea id="container" name="article_content" type="text/plain">
-    <?php echo $arrayUpdate['article_content']; ?>
+    <?php
+    $content = $arrayUpdate['article_content'];
+    $a = file_get_contents('articles/uploads/'.$content);
+//    var_dump($content , $a);
+    $content = htmlspecialchars_decode($a);
+    echo $content;
+    ?>
   </textarea>
   <div style="clear: both;height: 30px"></div>
   
