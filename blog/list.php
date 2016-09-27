@@ -1,4 +1,4 @@
-<?php include 'public/header.php'; ?>
+<?php include_once 'public/header.php'; ?>
 	<!-- banner -->
 	<div class="banner shadow two-nav">
 		首页 > 神技能
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 
-			<?php include 'public/tags.php'; ?>
+			<?php include_once 'public/tags.php'; ?>
 
 		</div>
 		
@@ -191,4 +191,4 @@
 		
 	</div>	
 	<!-- content end -->
-<?php include 'public/footer.php'; ?>
+<?php include_once 'public/footer.php'; ?>

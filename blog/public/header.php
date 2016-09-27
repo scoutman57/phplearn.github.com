@@ -1,3 +1,6 @@
+<?php
+include_once 'func.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,49 +29,87 @@
 		<div class="nav-content">
 			<ul class="menu">
 				<li><a href="index.php">首　页</a></li>
-				<li>
-					<a href="javascript:;">HTML</a>
-					<ul class="nav-menu">
-						<li><a href="#">HTML简介</a></li>
-						<li><a href="#">XHTML</a></li>
-						<li><a href="#">HTML5</a></li>
-
-					</ul>
-				</li>
-				
-				<li>
-					<a href="javascript:;">CSS</a>
-					<ul class="nav-menu">
-						<li><a href="#">CSS</a></li>
-						<li><a href="#">JSJS</a></li>
-						<li><a href="#">CSS</a></li>
-						<li><a href="#">CSS</a></li>
-						<li><a href="#">CSS</a></li>
-					</ul>
-				</li>
-				
-				<li>
-					<a href="javascript:;">JavaScript</a>
-					<ul class="nav-menu">
-						<li><a href="#">焦点图</a></li>
-						<li><a href="#">全屏广告</a></li>
-						<li><a href="#">对联广告</a></li>
-						<li><a href="#">相册代码</a></li>
-						<li><a href="#">菜单导航</a></li>
-						<li><a href="#">焦点图</a></li>
-						<li><a href="#">全屏广告</a></li>
-						<li><a href="#">对联广告</a></li>
-						<li><a href="#">相册代码</a></li>
-						<li><a href="#">菜单导航</a></li>
-						<li><a href="#">焦点图</a></li>
-						<li><a href="#">全屏广告</a></li>
-						<li><a href="#">对联广告</a></li>
-						<li><a href="#">相册代码</a></li>
-						<li><a href="#">菜单导航</a></li>
-					</ul>
-				</li>
-				<li><a href="javascript:;">MySQL</a></li>
-				<li><a href="javascript:;">Linux</a></li>
+			  		<?php
+						$sql = "select * from cate where cate_name = '文章分类'";
+						$cid = DB($sql)[0]['cid'];
+						function tree($pid = 0)
+						{
+						  $arr = array();
+						  $data = DB('select cid , cate_name from cate where pid = ' . $pid . '&& status=1 Order by ord desc , cid desc
+');
+						  foreach ($data as $cate)
+						  {
+							$cate['son'] = tree($cate['cid']);
+							$arr[] = $cate;
+						  }
+						  return $arr;
+						}
+				  	
+						//echo '<pre>';
+						$array = tree($cid);
+						$count = count($array);
+						for ($i = 0 ; $i < $count ; $i++)
+						{
+						  echo '<li>';
+						  echo "<a href=''>{$array[$i]['cate_name']}</a>";
+						  if (!empty($array[$i]['son']))
+						  {
+							$arraySon = $array[$i]['son'];
+							$countSon = count($arraySon);
+							echo "<ul class='nav-menu'>";
+							for ($j = 0 ; $j < $countSon ; $j++)
+							{
+							  echo "<li><a href='#'>{$arraySon[$j]['cate_name']}</a></li>";
+							}
+							echo "</ul>";
+						  }
+						  
+						  echo '</li>';
+						}
+					?>
+<!--				<li>-->
+<!--					<a href="javascript:;">HTML</a>-->
+<!--					<ul class="nav-menu">-->
+<!--						<li><a href="#">HTML简介</a></li>-->
+<!--						<li><a href="#">XHTML</a></li>-->
+<!--						<li><a href="#">HTML5</a></li>-->
+<!---->
+<!--					</ul>-->
+<!--				</li>-->
+<!--				-->
+<!--				<li>-->
+<!--					<a href="javascript:;">CSS</a>-->
+<!--					<ul class="nav-menu">-->
+<!--						<li><a href="#">CSS</a></li>-->
+<!--						<li><a href="#">JSJS</a></li>-->
+<!--						<li><a href="#">CSS</a></li>-->
+<!--						<li><a href="#">CSS</a></li>-->
+<!--						<li><a href="#">CSS</a></li>-->
+<!--					</ul>-->
+<!--				</li>-->
+<!--				-->
+<!--				<li>-->
+<!--					<a href="javascript:;">JavaScript</a>-->
+<!--					<ul class="nav-menu">-->
+<!--						<li><a href="#">焦点图</a></li>-->
+<!--						<li><a href="#">全屏广告</a></li>-->
+<!--						<li><a href="#">对联广告</a></li>-->
+<!--						<li><a href="#">相册代码</a></li>-->
+<!--						<li><a href="#">菜单导航</a></li>-->
+<!--						<li><a href="#">焦点图</a></li>-->
+<!--						<li><a href="#">全屏广告</a></li>-->
+<!--						<li><a href="#">对联广告</a></li>-->
+<!--						<li><a href="#">相册代码</a></li>-->
+<!--						<li><a href="#">菜单导航</a></li>-->
+<!--						<li><a href="#">焦点图</a></li>-->
+<!--						<li><a href="#">全屏广告</a></li>-->
+<!--						<li><a href="#">对联广告</a></li>-->
+<!--						<li><a href="#">相册代码</a></li>-->
+<!--						<li><a href="#">菜单导航</a></li>-->
+<!--					</ul>-->
+<!--				</li>-->
+<!--				<li><a href="javascript:;">MySQL</a></li>-->
+<!--				<li><a href="javascript:;">Linux</a></li>-->
 			</ul>
 		</div>
 	</div>

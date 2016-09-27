@@ -85,8 +85,8 @@ $arrayTree = tree($pid);
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/admin/article/articleUpdate.css">
-  <script src="/js/jquery3.1.0.js"></script>
+  <link rel="stylesheet" href="../../css/admin/article/articleUpdate.css">
+  <script src="../../js/jquery3.1.0.js"></script>
   <title></title>
 </head>
 <body>
@@ -150,7 +150,7 @@ $arrayTree = tree($pid);
   <label for="">添加标签　　　　
     <select name="tid" id="" class="articleUpdate">
       <?php
-      $sql = "select * from tags";
+      $sql = "select * from tags where status = 1";
       $arrayTags = DB($sql);
       $countTags = count($arrayTags);
       for ($j = 0 ; $j < $countTags ; $j++)

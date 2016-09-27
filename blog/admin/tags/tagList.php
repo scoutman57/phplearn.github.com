@@ -11,7 +11,7 @@ include '../../public/func.php';
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../../css/admin/tags/tagList.css">
-  <script src="/js/jquery3.1.0.js"></script>
+  <script src="../../js/jquery3.1.0.js"></script>
   <title></title>
 </head>
 <body>

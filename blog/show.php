@@ -1,4 +1,4 @@
-<?php include 'public/header.php'; ?>
+<?php include_once 'public/header.php'; ?>
 	<!-- banner -->
 	<div class="banner shadow two-nav">
 		首页 > <a href="list.html">神技能</a> > PHP是最火的语言吗?
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 
-			<?php include 'public/tags.php'; ?>
+			<?php include_once 'public/tags.php'; ?>
 
 		</div>
 		
@@ -72,4 +72,4 @@
 		
 	</div>	
 	<!-- content end -->
-<?php include 'public/footer.php'; ?>
+<?php include_once 'public/footer.php'; ?>

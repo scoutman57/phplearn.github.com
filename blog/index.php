@@ -1,36 +1,60 @@
-<?php include 'public/header.php'; ?>
+<?php
+
+include_once 'public/header.php';
+
+$sql = 'select * from player where status = 1 ORDER BY ord DESC';
+$playerList = DB($sql);
+?>
 	<!-- banner -->
 	<div class="banner shadow">
 		
 		<!-- player -->
 		<div id="fsD1" class="focus" >  
-		    <div id="D1pic1" class="fPic">  
-		        <div class="fcon" style="display: none;">
-		            <a target="_blank" href="#"><img src="images/01.jpg" style="opacity: 1; "></a>
-		            <span class="shadow"><a target="_blank" href="#">红三代叶明子太庙办盛典 白色羽毛装高贵动人</a></span>
-		        </div>
-		        
-		        <div class="fcon" style="display: none;">
-		            <a target="_blank" href="#"><img src="images/02.jpg" style="opacity: 1; "></a>
-		            <span class="shadow"><a target="_blank" href="#">佟大为登封面表情搞怪 成熟男人也是天真男孩</a></span>
-		        </div>
-		        
-		        <div class="fcon" style="display: none;">
-		            <a target="_blank" href="#"><img src="images/03.jpg" style="opacity: 1; "></a>
-		            <span class="shadow"><a target="_blank" href="#">21岁出柜超模巴厘自曝搞笑全裸照</a></span>
-		        </div>
-		        
-		        <div class="fcon" style="display: none;">
-		            <a target="_blank" href="#"><img src="images/04.jpg" style="opacity: 1; "></a>
-		            <span class="shadow"><a target="_blank" href="#">金喜善出道21年 皮肤白皙越长越“嫩”！</a></span>
-		        </div>    
+		    <div id="D1pic1" class="fPic">
+			  <?php
+			  $countPlayerList = count($playerList);
+			  for ($i = 0 ; $i < $countPlayerList ; $i++)
+			  {
+			    echo "<div class=\"fcon\" style=\"display: none;\">
+		            <a target=\"_blank\" href=\"images/{$playerList[$i]['local_route']}\"><img src=\"images/{$playerList[$i]['local_route']}\" style=\"opacity: 1; \"></a>
+		            <span class=\"shadow\"><a target=\"_blank\" href=\"#\">{$playerList[$i]['player_name']}</a></span>
+		        </div>";
+			  }
+			  
+			  ?>
+<!--		        <div class="fcon" style="display: none;">-->
+<!--		            <a target="_blank" href="#"><img src="images/01.jpg" style="opacity: 1; "></a>-->
+<!--		            <span class="shadow"><a target="_blank" href="#">红三代叶明子太庙办盛典 白色羽毛装高贵动人</a></span>-->
+<!--		        </div>-->
+<!--		        -->
+<!--		        <div class="fcon" style="display: none;">-->
+<!--		            <a target="_blank" href="#"><img src="images/02.jpg" style="opacity: 1; "></a>-->
+<!--		            <span class="shadow"><a target="_blank" href="#">佟大为登封面表情搞怪 成熟男人也是天真男孩</a></span>-->
+<!--		        </div>-->
+<!--		        -->
+<!--		        <div class="fcon" style="display: none;">-->
+<!--		            <a target="_blank" href="#"><img src="images/03.jpg" style="opacity: 1; "></a>-->
+<!--		            <span class="shadow"><a target="_blank" href="#">21岁出柜超模巴厘自曝搞笑全裸照</a></span>-->
+<!--		        </div>-->
+<!--		        -->
+<!--		        <div class="fcon" style="display: none;">-->
+<!--		            <a target="_blank" href="#"><img src="images/04.jpg" style="opacity: 1; "></a>-->
+<!--		            <span class="shadow"><a target="_blank" href="#">金喜善出道21年 皮肤白皙越长越“嫩”！</a></span>-->
+<!--		        </div>    -->
 		    </div>
 		    <div class="fbg">  
-		    <div class="D1fBt" id="D1fBt">  
-		        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>1</i></a>  
-		        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>  
-		        <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>3</i></a>  
-		        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>4</i></a>  
+		    <div class="D1fBt" id="D1fBt">
+			  <?php
+			  for ($i = 0 ; $i < $countPlayerList ; $i++)
+			  {
+				echo "<a href=\"javascript:void(0)\" hidefocus=\"true\" target=\"_self\" class=\"\"><i>1</i></a>";
+			  }
+		  
+			  ?>
+<!--		        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>1</i></a>  -->
+<!--		        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>  -->
+<!--		        <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>3</i></a>  -->
+<!--		        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>4</i></a>  -->
 		    </div>  
 		    </div>  
 		    <span class="prev"></span>   
@@ -55,19 +79,22 @@
 				<span>标签云/Tags</span>
 			</p>
 			<div class="cont-box">
-				<a href="javascript:void(0)">PHP <small>(260)</small></a>
-				<a href="javascript:void(0)">HTML</a>
-				<a href="javascript:void(0)">CSS</a>
-				<a href="javascript:void(0)">Linux</a>
-				<a href="javascript:void(0)">MySQL</a>
-				<a href="javascript:void(0)">Node.js</a>
-				<a href="javascript:void(0)">Javascript</a>
-				<a href="javascript:void(0)">JQuery</a>
-				<a href="javascript:void(0)">图片轮播</a>
-				<a href="javascript:void(0)">网页欣赏</a>
-				<a href="javascript:void(0)">PhotoShop</a>
-				<a href="javascript:void(0)">UI</a>
-				<a href="javascript:void(0)">UE</a>
+			  <?php
+			  showTagsAriticleNum();
+			  ?>
+<!--				<a href="javascript:void(0)">PHP <small>(260)</small></a>-->
+<!--				<a href="javascript:void(0)">HTML</a>-->
+<!--				<a href="javascript:void(0)">CSS</a>-->
+<!--				<a href="javascript:void(0)">Linux</a>-->
+<!--				<a href="javascript:void(0)">MySQL</a>-->
+<!--				<a href="javascript:void(0)">Node.js</a>-->
+<!--				<a href="javascript:void(0)">Javascript</a>-->
+<!--				<a href="javascript:void(0)">JQuery</a>-->
+<!--				<a href="javascript:void(0)">图片轮播</a>-->
+<!--				<a href="javascript:void(0)">网页欣赏</a>-->
+<!--				<a href="javascript:void(0)">PhotoShop</a>-->
+<!--				<a href="javascript:void(0)">UI</a>-->
+<!--				<a href="javascript:void(0)">UE</a>-->
 			</div>
 			
 
@@ -145,19 +172,22 @@
 				<span>标签云/Tags</span>
 			</p>
 			<div class="cont-box">
-				<a href="javascript:void(0)">PHP</a>
-				<a href="javascript:void(0)">HTML</a>
-				<a href="javascript:void(0)">CSS</a>
-				<a href="javascript:void(0)">Linux</a>
-				<a href="javascript:void(0)">MySQL</a>
-				<a href="javascript:void(0)">Node.js</a>
-				<a href="javascript:void(0)">Javascript</a>
-				<a href="javascript:void(0)">JQuery</a>
-				<a href="javascript:void(0)">图片轮播</a>
-				<a href="javascript:void(0)">网页欣赏</a>
-				<a href="javascript:void(0)">PhotoShop</a>
-				<a href="javascript:void(0)">UI</a>
-				<a href="javascript:void(0)">UE</a>
+			  <?php
+			  showTagsAriticleNum();
+			  ?>
+<!--				<a href="javascript:void(0)">PHP</a>-->
+<!--				<a href="javascript:void(0)">HTML</a>-->
+<!--				<a href="javascript:void(0)">CSS</a>-->
+<!--				<a href="javascript:void(0)">Linux</a>-->
+<!--				<a href="javascript:void(0)">MySQL</a>-->
+<!--				<a href="javascript:void(0)">Node.js</a>-->
+<!--				<a href="javascript:void(0)">Javascript</a>-->
+<!--				<a href="javascript:void(0)">JQuery</a>-->
+<!--				<a href="javascript:void(0)">图片轮播</a>-->
+<!--				<a href="javascript:void(0)">网页欣赏</a>-->
+<!--				<a href="javascript:void(0)">PhotoShop</a>-->
+<!--				<a href="javascript:void(0)">UI</a>-->
+<!--				<a href="javascript:void(0)">UE</a>-->
 			</div>
 			
 
@@ -249,4 +279,4 @@
 		<!-- photo  end -->
 	</div>	
 	<!-- content end -->
-<?php include 'public/footer.php';?>
+<?php include_once 'public/footer.php';?>

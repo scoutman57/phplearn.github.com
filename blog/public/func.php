@@ -184,5 +184,42 @@ function getUploadArticle($html = '')
  
   
 }
+
+
+
+
+
+
+
+
+
+
+function showTagsAriticleNum()
+{
+  $sql = "select * from tags where status = 1 ORDER BY ord DESC , clickcount DESC";
+  $tagsList = DB($sql);
+  $strtemp = '';
+  $countTagsList = count($tagsList);
+  for ($i = 0 ; $i < $countTagsList ; $i++)
+  {
+	$strtemp .= $tagsList[$i]['tid'].',';
+  }
+  $strtemp = rtrim($strtemp , ',');
+  $sql = "Select count(aid) as count , tid from article_tags where tid in({$strtemp}) group by tid
+";
+  $article_tagsList = DB($sql);
+  for ($i = 0 ; $i < $countTagsList ; $i++)
+  {
+	for ($j = 0 ; $j < count($article_tagsList) ; $j++)
+	{
+	  if ($article_tagsList[$j]['tid'] == $tagsList[$i]['tid'])
+	  {
+		echo "<a href=\"javascript:void(0)\">{$tagsList[$i]['tagname']}　{$article_tagsList[$j]['count']}</a>";
+		continue(2);
+	  }
+	}
+	echo "<a href=\"javascript:void(0)\">{$tagsList[$i]['tagname']}</a>";
+  }
+}
 ?>
 
