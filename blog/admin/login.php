@@ -11,8 +11,8 @@ header("Content-Type:text/html;charset=utf-8");
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>管理员登录</title>
-  <link rel="stylesheet" href="../CSS/administrators_login.css">
-  <script src="../JS/jquery3.1.0.js"></script>
+  <link rel="stylesheet" href="../css/administrators_login.css">
+  <script src="../js/jquery3.1.0.js"></script>
 </head>
 <body>
 

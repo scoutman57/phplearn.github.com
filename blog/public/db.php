@@ -2,6 +2,8 @@
 header('Content-type:text/html;charset=utf-8');
 
 include 'config.php';
+?>
+<?php
 
 $con = mysqli_connect(HOST , MYSQL_USER , MYSQL_PASSWORD , MYSQL_DATABASE);
 
@@ -38,5 +40,5 @@ function DB($sql = '' , $type = MYSQLI_ASSOC){
         return $affected >= 0 ? $affected : '0'; //返回影响行数
     }
 }
-
+?>
 

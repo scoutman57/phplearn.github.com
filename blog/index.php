@@ -1,9 +1,10 @@
 <?php
 
-include_once 'public/header.php';
+include './public/header.php';
 
 $sql = 'select * from player where status = 1 ORDER BY ord DESC';
 $playerList = DB($sql);
+echo "<input type='hidden' id='myhidden' name='all' value=''>";
 ?>
 	<!-- banner -->
 	<div class="banner shadow">
@@ -107,18 +108,34 @@ $playerList = DB($sql);
 			</p>
 			<div class="cont-box">
 				<ul>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
+				  <?php
+				  $sql = "select cid from cate where cate_name='神技能'";
+				  $cid = DB($sql)[0]['cid'];
+				  $sql = "select * from article where cid != {$cid} && status=1 ORDER BY last_time DESC";
+//				  $sql = "select * from article ORDER BY last_time DESC";
+				  $arrayArticle = DB($sql);
+				  $countArrayArticle = count($arrayArticle);
+				  if ($countArrayArticle > 10)
+				  {
+					$countArrayArticle = 10;
+				  }
+				  for ($i = 0 ; $i < $countArrayArticle ; $i++)
+				  {
+					echo "<li><a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a><span>{$arrayArticle[$i]['last_time']}</span></li>";
+				  }
+				  ?>
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
 				</ul>
 
-				<p class="more"><a href="list.php">More>>></a></p>
+				<p class="more"><a href="./list.php">More>>></a></p>
 			</div>
 		</div>
 		<!-- content center end -->
@@ -129,29 +146,61 @@ $playerList = DB($sql);
 			</p>
 			<div class="cont-box">
 				<ul>
-					<li>
-						<span class ="top">top</span
-						<a href="#">DIV + CSS布局的技巧分享</a>
-					</li>
-					<li>
-						<span class ="hot">hot</span>
-						<a href="#">DIV + CSS布局的技巧分享</a>
-					</li>
-					<li>
-						<span class ="new">new</span>
-						<a href="#">DIV + CSS布局的技巧分享</a>
-					</li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
+				  <?php
+				  $sql = "select * from article where cid ={$cid} && status = 1 ORDER BY click_count DESC , last_time DESC";
+				  $arrayArticle = DB($sql);
+				  $countArrayArticle = count($arrayArticle);
+				  if ($countArrayArticle > 10)
+				  {
+					$countArrayArticle = 10;
+				  }
+				  for ($i = 0 ; $i < $countArrayArticle ; $i++)
+				  {
+					if ($i == 0)
+					{
+					  echo "					<li>
+						<span class =\"top\">top</span>
+						<a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a>
+						</li>";
+					}
+					elseif ($i == 1)
+					{
+					  echo "					<li>
+						<span class =\"top\">hot</span>
+						<a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a>
+						</li>";
+					}
+					else
+					{
+					  echo "
+					  <li><a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a></li>
+					  ";
+					}
+				  }
+//				  ?>
+<!--					<li>-->
+<!--						<span class ="top">top</span-->
+<!--						<a href="#">DIV + CSS布局的技巧分享</a>-->
+<!--					</li>-->
+<!--					<li>-->
+<!--						<span class ="hot">hot</span>-->
+<!--						<a href="#">DIV + CSS布局的技巧分享</a>-->
+<!--					</li>-->
+<!--					<li>-->
+<!--						<span class ="new">new</span>-->
+<!--						<a href="#">DIV + CSS布局的技巧分享</a>-->
+<!--					</li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
 					
 				</ul>
 
-				<p class="more"><a href="list.html">More>>></a></p>
+				<p class="more"><a href="./list.php?cid=<?php echo $cid; ?>">More>>></a></p>
 			</div>
 		</div>
 		<!-- content right end -->
@@ -196,24 +245,37 @@ $playerList = DB($sql);
 		<!-- content center -->
 		<div class="center shadow">
 			<p class="title">
-				<span>最新更新/News</span>
+				<span>最多点击/Hots</span>
 			</p>
 			<div class="cont-box">
 				<ul>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
-					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>
+				  <?php
+				  $sql = "select * from article where status = 1  ORDER BY click_count DESC";
+				  $arrayArticle = DB($sql);
+				  $countArrayArticle = count($arrayArticle);
+				  if ($countArrayArticle > 10)
+				  {
+					$countArrayArticle = 10;
+				  }
+				  for ($i = 0 ; $i < $countArrayArticle ; $i++)
+				  {
+					echo "<li><a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a><span>{$arrayArticle[$i]['last_time']}</span></li>";
+				  }
+				  ?>
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
+<!--					<li><a href="#">PHP是最火的语言吗?</a><span>2016-05-11</span></li>-->
 				</ul>
 
-				<p class="more"><a href="list.html">More>>></a></p>
+				<p class="more"><a href="./list.php">More>>></a></p>
 			</div>
 		</div>
 		<!-- content center end -->
@@ -224,28 +286,60 @@ $playerList = DB($sql);
 			</p>
 			<div class="cont-box">
 				<ul>
-					<li>
-						<span class ="top">top</span
-						<a href="#">DIV + CSS布局的技巧分享</a>
-					</li>
-					<li>
-						<span class ="hot">hot</span>
-						<a href="#">DIV + CSS布局的技巧分享</a>
-					</li>
-					<li>
-						<span class ="new">new</span>
-						<a href="#">DIV + CSS布局的技巧分享</a>
-					</li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
-					<li><a href="#">DIV + CSS布局的技巧分享</a></li>
+				  <?php
+				  $sql = "select * from article where cid ={$cid} && status = 1 ORDER BY click_count DESC , last_time DESC";
+				  $arrayArticle = DB($sql);
+				  $countArrayArticle = count($arrayArticle);
+				  if ($countArrayArticle > 10)
+				  {
+					$countArrayArticle = 10;
+				  }
+				  for ($i = 0 ; $i < $countArrayArticle ; $i++)
+				  {
+					if ($i == 0)
+					{
+					  echo "					<li>
+						<span class =\"top\">top</span>
+						<a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a>
+						</li>";
+					}
+					elseif ($i == 1)
+					{
+					  echo "					<li>
+						<span class =\"top\">hot</span>
+						<a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a>
+						</li>";
+					}
+					else
+					{
+					  echo "
+					  <li><a href='/show.php?aid={$arrayArticle[$i]['aid']}'>{$arrayArticle[$i]['article_name']}</a></li>
+					  ";
+					}
+				  }
+				  //				  ?>
+<!--					<li>-->
+<!--						<span class ="top">top</span-->
+<!--						<a href="#">DIV + CSS布局的技巧分享</a>-->
+<!--					</li>-->
+<!--					<li>-->
+<!--						<span class ="hot">hot</span>-->
+<!--						<a href="#">DIV + CSS布局的技巧分享</a>-->
+<!--					</li>-->
+<!--					<li>-->
+<!--						<span class ="new">new</span>-->
+<!--						<a href="#">DIV + CSS布局的技巧分享</a>-->
+<!--					</li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
+<!--					<li><a href="#">DIV + CSS布局的技巧分享</a></li>-->
 				</ul>
-
-				<p class="more"><a href="list.html">More>>></a></p>
+			  
+			  <p class="more"><a href="./list.php?cid=<?php echo $cid; ?>">More>>></a></p>
 			</div>
 		</div>
 		<!-- content right end -->
@@ -261,22 +355,34 @@ $playerList = DB($sql);
 	<div class="content clear">
 		<!-- photo  -->
 		<div class="photo">
-			
-			<div class="photo-list shadow">
-				<img src="images/01.jpg">
+			<?php
+			$sql = "select * from picture where status = 1";
+			$imagesList = DB($sql);
+			$countImageList = count($imagesList) > 4 ? 4 : count($imagesList);
+			for ($i = 0 ; $i < $countImageList ; $i++)
+			{
+			  echo "
+			  <div class=\"photo-list shadow\">
+				<img src='./images/{$imagesList[$i]['local_route']}'>
 			</div>
-			<div class="photo-list shadow">
-				<img src="images/01.jpg">
-			</div>
-			<div class="photo-list shadow">
-				<img src="images/01.jpg">
-			</div>
-			<div class="photo-list shadow">
-				<img src="images/01.jpg">
-			</div>
+			  ";
+			}
+			?>
+<!--			<div class="photo-list shadow">-->
+<!--				<img src="images/01.jpg">-->
+<!--			</div>-->
+<!--			<div class="photo-list shadow">-->
+<!--				<img src="images/01.jpg">-->
+<!--			</div>-->
+<!--			<div class="photo-list shadow">-->
+<!--				<img src="images/01.jpg">-->
+<!--			</div>-->
+<!--			<div class="photo-list shadow">-->
+<!--				<img src="images/01.jpg">-->
+<!--			</div>-->
 
 		</div>
 		<!-- photo  end -->
 	</div>	
 	<!-- content end -->
-<?php include_once 'public/footer.php';?>
+<?php include './public/footer.php';?>

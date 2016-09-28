@@ -1,24 +1,73 @@
 <?php
-include_once 'func.php';
+include 'func.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>博客首页</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/global.css">
-	<script type="text/javascript" src="js/Jquery.min.js"></script>
-	<script type="text/javascript" src="js/koala.min.1.5.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/koala.min.1.5.js"></script>
+    <script src="/js/jquery3.1.0.js"></script>
+  	<script>
+	  window.onload = function ()
+	  {
+		var obj = document.getElementById('btnSearch');
+		obj.onclick = function ()
+		{
+		  var searchValue = encodeURI(document.getElementById('textSearch').value);
+		  if (document.getElementById('myhidden') != null)
+		  {
+			var hiddenValue = encodeURI(document.getElementById('myhidden').value);
+			var hiddenName = encodeURI($('#myhidden').attr('name'));
+			var myurl = "./list.php?searchValue="+searchValue+"&hiddenValue="+hiddenValue+"&hiddenName="+hiddenName;
+		  }
+		  else
+		  {
+			var myurl = "./list.php?articleSearchValue="+searchValue;
+		  }
+		  
+		  
+		  
+		  
+		  
+//		  var info = "searchText="+searchValue+'&searchIDType='+hiddenName+'&searchID='+hiddenValue;
+////		  alert(info);
+		  if (searchValue != '')
+		  {
+			location=myurl;
+//		    var xhr = new XMLHttpRequest();
+//			xhr.onreadystatechange = function ()
+//			{
+//			  if (xhr.readyState == 4)
+//			  {
+//			    var myget = xhr.responseText;
+//			    alert(myget);
+//			  }
+//			};
+//			xhr.open('post' , '/searchAjax.php');
+//			xhr.setRequestHeader('content-type' , 'application/x-www-form-urlencoded');
+//			xhr.send(info);
+		}
+		}
+		  
+		
+	  };
+	  
+	  
+  	</script>
 </head>
 <body>
 	<!--header-->
 	<div class="header">
 		<div class="head-content">
-			<div class="logo">Alan Shang Blog</div>
+			<div class="logo">Martin Zeng Blog</div>
 			<div class="search">
 				<form action="" method="post">
-					<input type="text" name="search" placeholder="PHP"><input type="button" value="搜 索">
+					<input type="text" name="search" placeholder="PHP" id="textSearch"><input type="button" value="搜 索" id="btnSearch">
 				</form>
 			</div>
 		</div>
@@ -28,14 +77,14 @@ include_once 'func.php';
 	<div class="nav">
 		<div class="nav-content">
 			<ul class="menu">
-				<li><a href="index.php">首　页</a></li>
+				<li><a href="../index.php">首　页</a></li>
 			  		<?php
 						$sql = "select * from cate where cate_name = '文章分类'";
 						$cid = DB($sql)[0]['cid'];
 						function tree($pid = 0)
 						{
 						  $arr = array();
-						  $data = DB('select cid , cate_name from cate where pid = ' . $pid . '&& status=1 Order by ord desc , cid desc
+						  $data = DB('select cid , cate_name , pid from cate where pid = ' . $pid . '&& status=1 Order by ord desc , cid desc
 ');
 						  foreach ($data as $cate)
 						  {
@@ -51,7 +100,7 @@ include_once 'func.php';
 						for ($i = 0 ; $i < $count ; $i++)
 						{
 						  echo '<li>';
-						  echo "<a href=''>{$array[$i]['cate_name']}</a>";
+						  echo "<a href='/list.php?cid={$array[$i]['cid']}'>{$array[$i]['cate_name']}</a>";
 						  if (!empty($array[$i]['son']))
 						  {
 							$arraySon = $array[$i]['son'];
@@ -59,7 +108,7 @@ include_once 'func.php';
 							echo "<ul class='nav-menu'>";
 							for ($j = 0 ; $j < $countSon ; $j++)
 							{
-							  echo "<li><a href='#'>{$arraySon[$j]['cate_name']}</a></li>";
+							  echo "<li><a href='/list.php?cid2={$arraySon[$j]['cid']}&pid={$arraySon[$j]['pid']}'>{$arraySon[$j]['cate_name']}</a></li>";
 							}
 							echo "</ul>";
 						  }
@@ -114,3 +163,16 @@ include_once 'func.php';
 		</div>
 	</div>
 	<!-- nav end -->
+	
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,7 +5,7 @@
 			<a href="#">联系我们</a>　|　
 			<a href="#">版权声明</a>　|　
 			<a href="#">友情链接</a>
-			<span><a href="mailto:alansshang@163.com">Email : alansshang@163.com</a>　　&copy;Alan Shang</span>
+			<span><a href="mailto:martinzzfx@gmail.com">Email : martinzzfx@gmail.com</a>　　&copy;Martin Zeng</span>
 		</div>
 	</div>
 	<!-- footer end -->

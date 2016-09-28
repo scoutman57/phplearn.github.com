@@ -63,6 +63,41 @@ include_once 'public/func.php';
 //$strtemp = rtrim($strtemp , ',');
 //$sql = "Select count(aid) as count , tid from article_tags where tid in({$strtemp}) group by tid";
 //var_dump($strtemp , $sql , DB($sql));
+
+
+//$sql = "select cid from cate where cate_name='神技能'";
+//$cid = DB($sql)[0]['cid'];
+//$sql = "select * from article where cid != {$cid} && status=1 ORDER BY last_time DESC";
+//$arrayArticle = DB($sql);
+//$countArrayArticle = count($arrayArticle);
+//if ($countArrayArticle > 10)
+//{
+//  $countArrayArticle = 10;
+//}
+//for ($i = 0 ; $i < $countArrayArticle ; $i++)
+//{
+//
+//}
+//$sql = "select * from article where cid ={$cid} && status = 1 ORDER BY click_count DESC , last_time DESC";
+//$arrayArticle = DB($sql);
+//$countArrayArticle = count($arrayArticle);
+
+//$sql = "select * from article_tags where aid = 2";
+//$sql = "select * from tags where tid = 1";
+$sql = "select * from cate where pid = 17";
+$sonArray = DB($sql);
+$cidStr = '';
+for ($i = 0 ; $i < count($sonArray) ; $i++)
+{
+  $cidStr .= $sonArray[$i]['cid'].',';
+}
+$cidStr = $cidStr.'17';
+var_dump($sonArray , $cidStr);
+
+$sql = "select * from article where cid  IN (21)";
+var_dump(DB($sql));
+
+
 ?>
 
 <!--<script>-->

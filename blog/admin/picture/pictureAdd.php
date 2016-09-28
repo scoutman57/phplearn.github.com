@@ -12,7 +12,7 @@ include '../../public/func.php';
 if (!empty($_POST))
 {
   $arrayPicture = $_FILES['picture'];
-  $res = getUpload('picture' , 'images');
+  $res = getUpload('picture' , 'picture');
   $imageName = $res['data'];
 //  var_dump($_POST , $_FILES , $arrayPicture ,$imageName);
   $sql = "insert into picture VALUES (NULL , {$_POST['pid']} , '' , '{$imageName}' , '' , 0 , '{$_POST['status']}')";
