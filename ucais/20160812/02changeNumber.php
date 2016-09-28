@@ -1,5 +1,5 @@
 <?php
-header("Content-Type:text/html;charset=utf-8");
+header("Content-Type:text/html;charset=utf-8");     
 
 echo '题目描述
 输入10个数，找出其中绝对值最小的数，将它和最后一个数交换，然后输出这10个数。
