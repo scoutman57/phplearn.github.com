@@ -1,0 +1,65 @@
+*{
+  border: 0;
+  padding: 0;
+}
+
+body{
+  background: #F2F2F2;
+}
+
+h1{
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(91, 91, 91);
+  font-family: 微软雅黑, 黑体;
+}
+
+h2{
+  background: white;
+  color: tomato;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 50px;
+  border: 1px solid grey;
+  padding-left: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: -10px;
+  font-family: 微软雅黑, 黑体;
+}
+
+
+
+dl{
+  line-height: 40px;
+  font-family: 微软雅黑, 黑体;
+  color: rgb(91, 91, 91);
+  background: #DDDDDD;
+}
+
+dt{
+  background: white;
+  margin-bottom: -10px;
+}
+
+dt:hover{
+  -webkit-box-shadow: 2px 2px 5px grey;
+  box-shadow: 2px 2px 5px grey;
+  color: black;
+  background: #0099E0;
+  /*background: aqua;*/
+}
+
+
+a{
+  float: right;
+  margin-right: 10px;
+  font-family: 微软雅黑, 黑体;
+  color: rgb(91, 91, 91);
+  text-decoration: none;
+}
+
+a:hover{
+  font-weight: 600;
+}
