@@ -1,29 +1,50 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Administrator">
     <words>
+      <w>aclass</w>
       <w>aloginout</w>
       <w>arrtemp</w>
       <w>artical</w>
+      <w>btncomment</w>
       <w>btnsub</w>
       <w>clickcount</w>
+      <w>commentaid</w>
+      <w>commentcontent</w>
+      <w>commentext</w>
+      <w>commentid</w>
       <w>countlist</w>
       <w>datacount</w>
+      <w>datas</w>
+      <w>displaynone</w>
+      <w>divcomment</w>
       <w>divpage</w>
+      <w>divwether</w>
       <w>ffffff</w>
       <w>filestatus</w>
       <w>gmail</w>
+      <w>iframewether</w>
       <w>imgtonone</w>
+      <w>likenum</w>
       <w>loginout</w>
       <w>mycheck</w>
+      <w>myecho</w>
       <w>myhidden</w>
+      <w>myhref</w>
       <w>myimgshowx</w>
       <w>myshow</w>
       <w>mysrc</w>
+      <w>mystart</w>
+      <w>newcomment</w>
+      <w>newreply</w>
+      <w>pcommentid</w>
       <w>picid</w>
       <w>playerid</w>
       <w>playerscount</w>
+      <w>pname</w>
+      <w>refreshhot</w>
       <w>rescount</w>
       <w>showx</w>
+      <w>spant</w>
       <w>strtemp</w>
       <w>tagcount</w>
       <w>tagl</w>
@@ -33,6 +54,8 @@
       <w>tdshow</w>
       <w>tdupdate</w>
       <w>tearline</w>
+      <w>textarea</w>
+      <w>usernamezzz</w>
     </words>
   </dictionary>
 </component>

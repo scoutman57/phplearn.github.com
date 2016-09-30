@@ -276,7 +276,7 @@
 	position: relative;
 }
 
-.photo .photo-list img{
+.photo .photo-list .photo-a img{
 	width: 246.5px;
 }
 
@@ -446,4 +446,90 @@ filter:progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorst
 .no-bor ul{
 	border:0; 
 }
+
+#comment_form .commentext{
+	width: 500px;
+	height: 30px;
+	font-size: 1rem;
+}
+
+#btncomment{
+	padding: 8px 20px;
+	font-size: 15px;
+	background: #0080ff;
+	border-radius: 5px;
+	color: white;
+	font-weight:600;
+}
+
+.commentUserName a{
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #0080ff;
+}
+
+.commentContent{
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.commentCommentTime{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+.commentLike:hover,.newcommentLike:hover{
+	cursor:pointer
+}
+
+.divToNone{
+  display: none;
+}
+
+.commentTitle{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.commentRepeat{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.commentReplyText{
+  width: 300px;
+  height: 30px;
+  font-size: 1.1rem;
+}
+
+.commentReplySub{
+  padding: 5px 10px;
+  font-size: 15px;
+  background: #0080ff;
+  border-radius: 5px;
+  color: white;
+  font-weight:600;
+  margin-left: 10px;
+}
+
+.newCommentUsername{
+  font-size: 1.2rem;
+}
+
+.replyUsernamezzz{
+  width: 190px;
+  height: 30px;
+  font-size: 1.2rem;
+}
+
+.divwether{
+	position: fixed;
+	top:160px;
+}
+
+.iframewether{
+	border: none;
+}
+
+
 /*其他结束*/

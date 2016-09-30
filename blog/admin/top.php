@@ -17,7 +17,7 @@
 		Blog系统管理后台	
 	</div>
 	<div class="user">
-		您好,超级管理员 admin
+		您好,超级管理员 martin
 	  <a id="aloginout" href="loginout.php" target="_top">退出</a>
 	</div>
 </body>

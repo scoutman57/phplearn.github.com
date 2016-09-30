@@ -118,7 +118,7 @@ $arrayTree = tree($pid);
   <label for="">添加标签　　　　
     <select name="tid" id="" class="articleUpdate">
       <?php
-      $sql = "select * from tags";
+      $sql = "select * from tags where status = 1";
       $arrayTags = DB($sql);
       $countTags = count($arrayTags);
       for ($j = 0 ; $j < $countTags ; $j++)
@@ -156,7 +156,7 @@ $arrayTree = tree($pid);
   </script>
   
   
-  <label for="">作者　 　　　　<input type="text" name="article_author" class="articleUpdate" value="author" placeholder=""></label><br><br>
+  <label for="">作者　 　　　　<input type="text" name="article_author" class="articleUpdate" value="佚名" placeholder=""></label><br><br>
   <label for="">点击量　 　　　<input type="text" name="click_count" class="articleUpdate" value="0"></label><br><br>
   <label for="">排序　　 　　　<input type="text" name="ord" class="articleUpdate" value="0"></label><br><br>
   <label for="">是否加精 　　　<input type="radio" name="essence" value="0" checked>　不显示　　<input type="radio" name="essence" value="1" id="essence">　显示</label><br><br>

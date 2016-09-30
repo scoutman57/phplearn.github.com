@@ -169,6 +169,22 @@ status INT (10) NOT NULL DEFAULT 0
 
 
 
+//创建评论表-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `comment`(
+commentid INT (10) PRIMARY KEY auto_increment,
+Pcommentid INT (10) NOT NULL DEFAULT 0,
+aid INT (10) NOT NULL DEFAULT 0,
+username VARCHAR (50) NOT NULL DEFAULT '',
+comment_content VARCHAR (200) NOT NULL DEFAULT '',
+like_count INT (10) NOT NULL DEFAULT 0,
+comment_time VARCHAR (50) NOT NULL DEFAULT '',
+status INT (10) NOT NULL DEFAULT 0
+)charset=utf8;
+
+//创建图片表----
+
+
 
 
 

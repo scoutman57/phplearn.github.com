@@ -6,6 +6,12 @@ $sql = 'select * from player where status = 1 ORDER BY ord DESC';
 $playerList = DB($sql);
 echo "<input type='hidden' id='myhidden' name='all' value=''>";
 ?>
+
+<div class="divwether">
+  <iframe class="iframewether" width="420" scrolling="no" height="70" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&color=%2300B0F0&bgc=%23&bdc=%23002060&icon=4&num=5"></iframe>
+
+
+</div>
 	<!-- banner -->
 	<div class="banner shadow">
 		
@@ -363,7 +369,7 @@ echo "<input type='hidden' id='myhidden' name='all' value=''>";
 			{
 			  echo "
 			  <div class=\"photo-list shadow\">
-				<img src='./images/{$imagesList[$i]['local_route']}'>
+				<a class='photo-a' href='./showImages.php?picid={$imagesList[$i]['picid']}' target='_blank'><img src='./images/{$imagesList[$i]['local_route']}'></a>
 			</div>
 			  ";
 			}

@@ -8,7 +8,7 @@ if (!empty($_GET))
   //------------------------模糊查询开始-----------------------------------------------------------------------------------------
   if (isset($_GET['searchValue']) && !isset($_GET['page']))
   {
-    if ($_GET['hiddenName'] == 'all')
+    if ($_GET['hiddenName'] == 'all')//在所有文章中模糊查询
 	{
 	  $_SESSION = array();
 	  $_SESSION['hiddenName'] = $_GET['hiddenName'];
@@ -32,7 +32,7 @@ if (!empty($_GET))
 		$countListArray = count($listArray);
 	  }
 	}
-	elseif ($_GET['hiddenName'] == 'tid')
+	elseif ($_GET['hiddenName'] == 'tid')//在拥有选中标签的文章中模糊查询
 	{
 	  $_SESSION = array();
 	  $_SESSION['hiddenName'] = $_GET['hiddenName'];
@@ -68,7 +68,7 @@ if (!empty($_GET))
 		$countListArray = count($listArray);
 	  }
 	}
-	elseif ($_GET['hiddenName'] == 'cid')
+	elseif ($_GET['hiddenName'] == 'cid')//在拥有选中栏目的文章中模糊查询
 	{
 	  $_SESSION = array();
 	  $_SESSION['hiddenName'] = $_GET['hiddenName'];
@@ -104,7 +104,7 @@ if (!empty($_GET))
 		$countListArray = count($listArray);
 	  }
 	}
-	elseif ($_GET['hiddenName'] == 'cid2')
+	elseif ($_GET['hiddenName'] == 'cid2')//在拥有选中二级标签的文章中模糊查询
 	{
 	  $_SESSION = array();
 	  $_SESSION['hiddenName'] = $_GET['hiddenName'];
@@ -133,7 +133,7 @@ if (!empty($_GET))
 	  }
 	}
   }//----------------------------------------------------------------
-  elseif(isset($_SESSION['searchValue']) && isset($_GET['page']))
+  elseif(isset($_SESSION['searchValue']) && isset($_GET['page']))//在模糊查询的结果中分页效果
   {
 	if ($_SESSION['hiddenName'] == 'tid')
 	{
@@ -229,9 +229,9 @@ if (!empty($_GET))
 
   else
   {
-	if (!isset($_GET['page']))
+	if (!isset($_GET['page']))//为分页
 	{
-	  if (isset($_GET['cid']))
+	  if (isset($_GET['cid']))//显示拥有相同栏目的文章
 	  {
 		echo "<input type='hidden' id='myhidden' name='cid' value='{$_GET['cid']}'>";
 		$_SESSION = array();
@@ -265,7 +265,7 @@ if (!empty($_GET))
 		  $countListArray = count($listArray);
 		}
 	  }
-	  elseif (isset($_GET['cid2']))
+	  elseif (isset($_GET['cid2']))//显示拥有相同二级栏目的文章
 	  {
 		echo "<input type='hidden' id='myhidden' name='cid2' value='{$_GET['cid2']}'>";
 		$_SESSION = array();
@@ -321,6 +321,7 @@ if (!empty($_GET))
 	  }
 	  else
 	  {
+	    DB("update tags set clickcount = clickcount + 1 where tid = {$_GET['tid']}");
 		echo "<input type='hidden' id='myhidden' name='tid' value='{$_GET['tid']}'>";
 		$_SESSION = array();
 		$sql = "select * from tags where tid = {$_GET['tid']}";
@@ -355,7 +356,7 @@ if (!empty($_GET))
 	  }
 	
 	}
-	else
+	else//点击分页
 	{
 	  if (isset($_SESSION['tid']))
 	  {
@@ -585,6 +586,10 @@ else
 					{
 					  $sql = "select * from tags where tid = {$atArray[$j]['tid']}";
 					  $tag2 .= DB($sql)[0]['tagname'].'　';
+					}
+					if(isset($_GET['searchValue']))
+					{
+					  var_dump($_GET);
 					}
 				    echo "
 				    <li>

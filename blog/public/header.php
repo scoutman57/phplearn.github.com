@@ -29,33 +29,21 @@ session_start();
 		  {
 			var myurl = "./list.php?articleSearchValue="+searchValue;
 		  }
-		  
-		  
-		  
-		  
-		  
-//		  var info = "searchText="+searchValue+'&searchIDType='+hiddenName+'&searchID='+hiddenValue;
-////		  alert(info);
+		  		  
 		  if (searchValue != '')
 		  {
 			location=myurl;
-//		    var xhr = new XMLHttpRequest();
-//			xhr.onreadystatechange = function ()
-//			{
-//			  if (xhr.readyState == 4)
-//			  {
-//			    var myget = xhr.responseText;
-//			    alert(myget);
-//			  }
-//			};
-//			xhr.open('post' , '/searchAjax.php');
-//			xhr.setRequestHeader('content-type' , 'application/x-www-form-urlencoded');
-//			xhr.send(info);
+		  }
 		}
-		}
-		  
-		
 	  };
+	
+	
+	  
+	  
+		//阻止浏览器默认动作
+//	document.getElementById('comment_form').preventDefault();//事件对象阻止
+		//return false;
+	  }
 	  
 	  
   	</script>
