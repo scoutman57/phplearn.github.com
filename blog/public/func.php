@@ -315,10 +315,10 @@ function hotComment($aid)
   $sql = "select * from comment where status = 1 && aid = {$aid} && Pcommentid = 0 ORDER by like_count desc ";
   $aid = array('aid' => $aid , 'hot' => 1);
   $hotCommentListTotal = getAjaxPageList($sql , $aid);
-  $hotCommentList = $hotCommentListTotal['data'];
+  $hotCommentList = $hotCommentListTotal['data'];//分页函数返回的详情数组
   if (!empty($hotCommentList)) {
     
-	function myechoFirst($hotCommentList , $i , $aid)
+	function myechoFirst($hotCommentList , $i , $aid)//显示 Pcommentid 为 0 的回复
 	{
 	  echo "
 		  	<p class='commentUserName'>
@@ -345,7 +345,7 @@ function hotComment($aid)
   
   
   
-	function myechoFirst2($hotCommentList , $i , $aid , $pname , $pcommentid , $t , $j)
+	function myechoFirst2($hotCommentList , $i , $aid , $pname , $pcommentid , $t , $j)//显示 Pcommentid 不为 0 的回复
 	{
 	  $sj = str_repeat('　　' , $t);
 	  echo "
@@ -376,12 +376,12 @@ function hotComment($aid)
 	
 	
 	
-	function replySon($pcommentid , $aid , $pname , $t)
+	function replySon($pcommentid , $aid , $pname , $t)//递归把 显示出来的回复下面的所有 子回复
 	{
-	  $t += 1;
+	  $t += 1;//子回复的缩进值
 	  $sql = "select * from comment where Pcommentid={$pcommentid}";
-	  $son1Array = DB($sql);
-	  if (!empty($son1Array))
+	  $son1Array = DB($sql);//查找Pcommend 为上层回复 commentid 的所有回复
+	  if (!empty($son1Array))//有子回复
 	  {
 		for ($j = 0; $j < count($son1Array); $j++)
 		{
@@ -395,7 +395,7 @@ function hotComment($aid)
 	}
     
     $t = 0;
-	for ($i = 0; $i < count($hotCommentList); $i++)
+	for ($i = 0; $i < count($hotCommentList); $i++)//循环将回复显示出来
 	{
 	  myechoFirst($hotCommentList , $i , $aid);
 	  replySon($hotCommentList[$i]['commentid'] , $aid , $hotCommentList[$i]['username'] , $t);

@@ -2,6 +2,7 @@
 
 include './public/header.php';
 
+//查找轮播图
 $sql = 'select * from player where status = 1 ORDER BY ord DESC';
 $playerList = DB($sql);
 echo "<input type='hidden' id='myhidden' name='all' value=''>";
@@ -18,6 +19,7 @@ echo "<input type='hidden' id='myhidden' name='all' value=''>";
 		<!-- player -->
 		<div id="fsD1" class="focus" >  
 		    <div id="D1pic1" class="fPic">
+<!--			  显示轮播图-->
 			  <?php
 			  $countPlayerList = count($playerList);
 			  for ($i = 0 ; $i < $countPlayerList ; $i++)
@@ -51,6 +53,7 @@ echo "<input type='hidden' id='myhidden' name='all' value=''>";
 		    </div>
 		    <div class="fbg">  
 		    <div class="D1fBt" id="D1fBt">
+			  显示轮播图中的小圆点
 			  <?php
 			  for ($i = 0 ; $i < $countPlayerList ; $i++)
 			  {
@@ -86,6 +89,7 @@ echo "<input type='hidden' id='myhidden' name='all' value=''>";
 				<span>标签云/Tags</span>
 			</p>
 			<div class="cont-box">
+<!--			  显示云标签-->
 			  <?php
 			  showTagsAriticleNum();
 			  ?>
@@ -114,6 +118,7 @@ echo "<input type='hidden' id='myhidden' name='all' value=''>";
 			</p>
 			<div class="cont-box">
 				<ul>
+<!--				  显示最新更新-->
 				  <?php
 				  $sql = "select cid from cate where cate_name='神技能'";
 				  $cid = DB($sql)[0]['cid'];
@@ -255,6 +260,7 @@ echo "<input type='hidden' id='myhidden' name='all' value=''>";
 			</p>
 			<div class="cont-box">
 				<ul>
+<!--				  显示最多点击的文章-->
 				  <?php
 				  $sql = "select * from article where status = 1  ORDER BY click_count DESC";
 				  $arrayArticle = DB($sql);
@@ -361,6 +367,7 @@ echo "<input type='hidden' id='myhidden' name='all' value=''>";
 	<div class="content clear">
 		<!-- photo  -->
 		<div class="photo">
+<!--		  显示最下方的图片-->
 			<?php
 			$sql = "select * from picture where status = 1";
 			$imagesList = DB($sql);

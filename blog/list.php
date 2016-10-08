@@ -39,7 +39,6 @@ if (!empty($_GET))
 	  $_SESSION['searchValue'] = $_GET['searchValue'];
 	  $_SESSION['hiddenValue'] = $_GET['hiddenValue'];
 	  $sql = "select * from tags where tid = {$_GET['hiddenValue']}";
-//	  $_SESSION['tid'] = $_GET['tid'];
 	  $tagArray = DB($sql)[0];
 	  echo "
   <div class=\"banner shadow two-nav\">
@@ -47,8 +46,8 @@ if (!empty($_GET))
 	</div>
   ";
 	  $sql = "select * from article_tags where tid={$_GET['hiddenValue']}";
-	  $aidArray = DB($sql);
-	  if (!empty($aidArray))
+	  $aidArray = DB($sql);//查找子标签
+	  if (!empty($aidArray))//如果有子标签就都显示出来
 	  {
 		$strtemp = '';
 		$countAidArray = count($aidArray);
@@ -396,7 +395,6 @@ if (!empty($_GET))
 		}
 		else
 		{
-//		  $pageArray = getPageList($sql);
 		  $listArray = array();
 		  $countListArray = count($listArray);
 		}
@@ -449,7 +447,6 @@ if (!empty($_GET))
 		}
 		else
 		{
-//		  $pageArray = getPageList($sql);
 		  $listArray = array();
 		  $countListArray = count($listArray);
 		}

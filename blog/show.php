@@ -47,6 +47,7 @@ else
 				</p>
 				<div class="cont-box">
 					<ul>
+<!--					  显示与文章有相同栏目的文章列表-->
 					  <?php
 					  
 					  $sql = "select * from article WHERE cid = {$articleCid} ORDER BY top desc";
@@ -340,7 +341,6 @@ else
 	xhr.send(info);
   
 	refreshAll();
-	
   
 //	阻止浏览器默认动作
 //	document.getElementById('comment_form').preventDefault();//事件对象阻止
@@ -364,17 +364,17 @@ else
 
   function newcommentLike(self , commentid)//最新文章点赞
   {
-  var xhr2 = new XMLHttpRequest();
-  var info2 = 'like_count='+commentid;
-  xhr2.open('post','./commentAjax.php');
-  xhr2.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  xhr2.send(info2);
-  var spant = $(self).next();
-  var likeCount = spant.text()*1 + 1;
-  spant.text(likeCount);
-  $(self).css('color','red');
-  self.onclick = null;
-}
+  	var xhr2 = new XMLHttpRequest();
+  	var info2 = 'like_count='+commentid;
+  	xhr2.open('post','./commentAjax.php');
+  	xhr2.setRequestHeader("content-type","application/x-www-form-urlencoded");
+  	xhr2.send(info2);
+  	var spant = $(self).next();
+  	var likeCount = spant.text()*1 + 1;
+  	spant.text(likeCount);
+  	$(self).css('color','red');
+  	self.onclick = null;
+  }
 
 
   function pageClick(self)//点击页码换页
